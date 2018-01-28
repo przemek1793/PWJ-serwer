@@ -7,6 +7,10 @@ import java.util.Properties;
 public class Serwer implements Runnable
 {
     Socket csocket;
+    static String AdresBazyDanych="192.168.0.13";
+    static String NazwaBazyDanych="PWJ_Projekt";
+    static String NazwaUzytkownika="PWJ";
+    static String HasłoDoBazy="asdf";
     Serwer(Socket csocket)
     {
         this.csocket = csocket;
@@ -34,8 +38,8 @@ public class Serwer implements Runnable
 
         Connection conn = null;
         Properties connectionProps = new Properties();
-        connectionProps.put("user", "PWJ");
-        connectionProps.put("password", "asdf");
+        connectionProps.put("user", NazwaUzytkownika);
+        connectionProps.put("password", HasłoDoBazy);
 
         try {
             conn = DriverManager.getConnection("jdbc:mysql://" + adres + ":" + port + "/",
@@ -273,10 +277,11 @@ public class Serwer implements Runnable
             /**
              * rejestracja
              */
-    //        if(tekst.equals("rejestracja"))
-  //          {
-  //              rejestracja(in,out);
- //           }
+            if(tekst.equals("rejestracja"))
+            {
+                System.out.println("rejestracja");
+                rejestracja(in,out);
+           }
             /**
              * logowanie
              */
@@ -287,7 +292,7 @@ public class Serwer implements Runnable
         }
         catch (IOException ex)
         {
-            System.out.println("IOException w menu");
+            ex.printStackTrace();
         }
     }
 
@@ -297,12 +302,40 @@ public class Serwer implements Runnable
             System.out.println(" sterownik OK");
         else
             System.exit(1);
-        connectToDatabase("192.168.0.13","PWJ_Projekt","PWJ","asdf");
         ServerSocket ssock = new ServerSocket(4255);
         while (true)
         {
             Socket sock = ssock.accept();
             new Thread(new Serwer(sock)).start();
+        }
+    }
+
+    public void rejestracja(BufferedReader in, PrintWriter out)
+    {
+        String login,hasło,Imie,Nazwisko,Email,typ;
+        try
+        {
+            login = in.readLine();
+            hasło = in.readLine();
+            Imie = in.readLine();
+            Nazwisko = in.readLine();
+            Email = in.readLine();
+            typ = in.readLine();
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") != -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            if (executeUpdate(st, "INSERT INTO uzytkownicy (login, haslo, Imie, Nazwisko, Email, typ) values ('"+login+"', '"+hasło+"', '"+Imie+"', '"+Nazwisko+"', '"+Email+"', '"+typ+"');") != -1)
+                System.out.println("Zarejestrowano uzytkownika");
+            else
+                System.out.println("Nie zarejestrowano uzytkownika!");
+            Menu(in,out);
+        }
+        catch (IOException ex)
+        {
+            ex.printStackTrace();
         }
     }
 }
