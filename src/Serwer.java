@@ -11,6 +11,7 @@ public class Serwer implements Runnable
     static String NazwaBazyDanych="PWJ_Projekt";
     static String NazwaUzytkownika="PWJ";
     static String HasłoDoBazy="asdf";
+    String TypZalogowanego="";
     Serwer(Socket csocket)
     {
         this.csocket = csocket;
@@ -280,13 +281,19 @@ public class Serwer implements Runnable
             if(tekst.equals("rejestracja"))
             {
                 rejestracja(in,out);
-           }
+            }
             /**
              * logowanie
              */
             if(tekst.equals("logowanie"))
             {
                 logowanie(in,out);
+            }
+            if(tekst.equals("wylogowanie"))
+            {
+                System.out.println("wylogowano");
+                TypZalogowanego="";
+                Menu(in,out);
             }
         }
         catch (IOException ex)
@@ -329,6 +336,7 @@ public class Serwer implements Runnable
                 System.out.println("Udalo sie zalogowac");
                 out.println("poprawne");
                 out.println(typ);
+                TypZalogowanego=typ;
             }
             else
             {
