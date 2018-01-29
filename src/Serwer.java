@@ -279,16 +279,15 @@ public class Serwer implements Runnable
              */
             if(tekst.equals("rejestracja"))
             {
-                System.out.println("rejestracja");
                 rejestracja(in,out);
            }
             /**
              * logowanie
              */
-//            if(tekst.equals("logowanie"))
- //           {
- //               logowanie(in,out);
- //           }
+            if(tekst.equals("logowanie"))
+            {
+                logowanie(in,out);
+            }
         }
         catch (IOException ex)
         {
@@ -307,6 +306,39 @@ public class Serwer implements Runnable
         {
             Socket sock = ssock.accept();
             new Thread(new Serwer(sock)).start();
+        }
+    }
+
+    public void logowanie(BufferedReader in, PrintWriter out)
+    {
+        String login,hasło;
+        try
+        {
+            login = in.readLine();
+            hasło = in.readLine();
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") != -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM uzytkownicy WHERE haslo='"+hasło+"' and login='"+login+"';");
+            if (wyniklogowania.next())
+            {
+                System.out.println("Udalo sie zalogowac");
+                out.println("poprawne");
+            }
+            else
+            {
+                System.out.println("bledne dane");
+                out.println("bledne");
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
         }
     }
 
