@@ -325,8 +325,10 @@ public class Serwer implements Runnable
             ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM uzytkownicy WHERE haslo='"+hasło+"' and login='"+login+"';");
             if (wyniklogowania.next())
             {
+                String typ= wyniklogowania.getString("typ");
                 System.out.println("Udalo sie zalogowac");
                 out.println("poprawne");
+                out.println(typ);
             }
             else
             {
