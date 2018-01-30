@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc5ffca5-4e66-4f16-b521-322cda87d016" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/commons_logging_1.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/google_api_client_gson_1_23_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/google_oauth_client_jetty_1_23_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/javax_servlet_api_3_1_0.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/oauth2.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Quickstart.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/pwj-serwer/Serwer.class" afterPath="$PROJECT_DIR$/out/production/pwj-serwer/Serwer.class" />
-      <change beforePath="$PROJECT_DIR$/pwj-serwer.iml" afterPath="$PROJECT_DIR$/pwj-serwer.iml" />
+      <change beforePath="$PROJECT_DIR$/out/production/pwj-serwer/GoogleMail.class" afterPath="$PROJECT_DIR$/out/production/pwj-serwer/GoogleMail.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/pwj-serwer/Quickstart.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/GoogleMail.java" afterPath="$PROJECT_DIR$/src/GoogleMail.java" />
+      <change beforePath="$PROJECT_DIR$/src/Quickstart.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/Serwer.java" afterPath="$PROJECT_DIR$/src/Serwer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -26,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Serwer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Serwer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Serwer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="418" column="6" lean-forward="false" selection-start-line="418" selection-start-column="6" selection-end-line="418" selection-end-column="6" />
+            <state relative-caret-position="196">
+              <caret line="418" column="128" lean-forward="false" selection-start-line="418" selection-start-column="128" selection-end-line="418" selection-end-column="128" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#457#458#0" expanded="true" />
@@ -43,8 +39,8 @@
       <file leaf-file-name="GoogleMail.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GoogleMail.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-130">
-              <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="23" />
+            <state relative-caret-position="-398">
+              <caret line="51" column="48" lean-forward="false" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,14 +48,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Quickstart.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Quickstart.java">
+      <file leaf-file-name="GmailScopes.java" pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/../../gmail/google-api-services-gmail-v1-rev79-1.23.0-sources.jar!/com/google/api/services/gmail/GmailScopes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1292">
-              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="457">
+              <caret line="51" column="39" lean-forward="false" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -100,6 +94,7 @@
       <find>buffe</find>
       <find>googlema</find>
       <find>credential</find>
+      <find>scope</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -113,10 +108,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/GoogleMail.java" />
         <option value="$PROJECT_DIR$/src/Utils.java" />
-        <option value="$PROJECT_DIR$/src/Serwer.java" />
         <option value="$PROJECT_DIR$/src/Quickstart.java" />
+        <option value="$PROJECT_DIR$/src/GoogleMail.java" />
+        <option value="$PROJECT_DIR$/src/Serwer.java" />
       </list>
     </option>
   </component>
@@ -186,7 +181,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Quickstart">
+  <component name="RunManager" selected="Application.Serwer">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -301,8 +296,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Application.Quickstart" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Serwer" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Serwer" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Quickstart" />
       </list>
     </recent_temporary>
   </component>
@@ -324,6 +319,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -339,6 +335,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -350,7 +347,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -518,18 +514,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Serwer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="418" column="6" lean-forward="false" selection-start-line="418" selection-start-column="6" selection-end-line="418" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#457#458#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/io/File.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -543,16 +527,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GoogleMail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-130">
-          <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -574,10 +548,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Quickstart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+        <state relative-caret-position="386">
+          <caret line="89" column="45" lean-forward="false" selection-start-line="89" selection-start-column="45" selection-end-line="89" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../gmail/google-api-services-gmail-v1-rev79-1.23.0-sources.jar!/com/google/api/services/gmail/GmailScopes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="51" column="39" lean-forward="false" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GoogleMail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-398">
+          <caret line="51" column="48" lean-forward="false" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Serwer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="418" column="128" lean-forward="false" selection-start-line="418" selection-start-column="128" selection-end-line="418" selection-end-column="128" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
+            <element signature="e#495#496#0" expanded="true" />
           </folding>
         </state>
       </provider>
