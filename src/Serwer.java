@@ -1,4 +1,5 @@
 import com.google.api.client.googleapis.json.GoogleJsonResponseException;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -89,11 +90,11 @@ public class Serwer implements Runnable
             {
                 Connection con=getConnection(adress,3306);
                 Statement st = createStatement(con);
-                if (executeUpdate(st, "USE "+dataBaseName+";") != -1)
+                if (executeUpdate(st, "USE "+dataBaseName+";") > -1)
                     System.out.println("Baza wybrana");
                 else
                 {
-                    if (executeUpdate(st, "create Database "+dataBaseName+";") != -1)
+                    if (executeUpdate(st, "create Database "+dataBaseName+";") > -1)
                         System.out.println("Baza utworzona");
                     else
                         System.out.println("Baza niewybrana!");
@@ -121,7 +122,7 @@ public class Serwer implements Runnable
                 System.out.println("Tabela Uzytkownicy istnieje");
             }
             else {
-                if (executeUpdate(st, "CREATE TABLE Uzytkownicy (login VARCHAR(50) unique NOT NULL, haslo VARCHAR(50) NOT NULL, Imie VARCHAR(50) NOT NULL, Nazwisko VARCHAR(50) primary key NOT NULL, Email VARCHAR(50) unique NOT NULL, typ enum(\"student\",\"prowadzacy\",\"administrator\") NOT NULL, Prowadzone_przedmioty VARCHAR(250), Uczeszczane_przedmioty VARCHAR(250), CzyZatwierdzony tinyint(1) not null);") != -1)
+                if (executeUpdate(st, "CREATE TABLE Uzytkownicy (login VARCHAR(50) unique NOT NULL, haslo VARCHAR(50) NOT NULL, Imie VARCHAR(50) NOT NULL, Nazwisko VARCHAR(50) NOT NULL, Email VARCHAR(50) unique NOT NULL, typ enum(\"student\",\"prowadzacy\",\"administrator\") NOT NULL, Prowadzone_przedmioty VARCHAR(250), Uczeszczane_przedmioty VARCHAR(250), CzyZatwierdzony tinyint(1) not null);") > -1)
                     System.out.println("Tabela Uzytkownicy utworzona");
                 else
                     System.out.println("Tabela Uzytkownicy nie utworzona!");
@@ -131,7 +132,7 @@ public class Serwer implements Runnable
                 System.out.println("Tabela Przedmioty istnieje");
             }
             else {
-                if (executeUpdate(st, "CREATE TABLE Przedmioty (Nazwa VARCHAR(50) unique NOT NULL, Nazwisko_prowadzacego VARCHAR(50) primary key NOT NULL, Preferowany_czas_prowadzacego VARCHAR(50), Godziny_przedmiotu VARCHAR(50), Uczeszczajacy VARCHAR(250) );") != -1)
+                if (executeUpdate(st, "CREATE TABLE Przedmioty (Nazwa VARCHAR(50) unique NOT NULL, Nazwisko_prowadzacego VARCHAR(50) NOT NULL, Preferowany_czas_prowadzacego VARCHAR(50), Godziny_przedmiotu VARCHAR(50), Uczeszczajacy VARCHAR(250) );") > -1)
                     System.out.println("Tabela Przedmioty utworzona");
                 else
                     System.out.println("Tabela Przedmioty nie utworzona!");
@@ -141,7 +142,7 @@ public class Serwer implements Runnable
                 System.out.println("Tabela Serwery istnieje");
             }
             else {
-                if (executeUpdate(st, "CREATE TABLE Serwery (IP VARCHAR(50) unique NOT NULL);") != -1)
+                if (executeUpdate(st, "CREATE TABLE Serwery (IP VARCHAR(50) unique NOT NULL);") > -1)
                     System.out.println("Tabela Serwery utworzona");
                 else
                     System.out.println("Tabela Serwery nie utworzona!");
@@ -151,7 +152,7 @@ public class Serwer implements Runnable
                 System.out.println("Tabela Zmiany istnieje");
             }
             else {
-                if (executeUpdate(st, "CREATE TABLE Zmiany (Tabela VARCHAR(50) NOT NULL, Klucz VARCHAR(50) NOT NULL, KolumnaDoZmiany VARCHAR(50) NOT NULL, NowaWartosc VARCHAR(50) NOT NULL);") != -1)
+                if (executeUpdate(st, "CREATE TABLE Zmiany (Tabela VARCHAR(50) NOT NULL, Klucz VARCHAR(50) NOT NULL, KolumnaDoZmiany VARCHAR(50) NOT NULL, NowaWartosc VARCHAR(50) NOT NULL);") > -1)
                     System.out.println("Tabela Zmiany utworzona");
                 else
                     System.out.println("Tabela Zmiany nie utworzona!");
@@ -260,9 +261,15 @@ public class Serwer implements Runnable
     private static int executeUpdate(Statement s, String sql) {
         try {
             return s.executeUpdate(sql);
-        } catch (SQLException e) {
+        }
+        catch (MySQLIntegrityConstraintViolationException sqle)
+        {
+            return -5; //5 - dodawanie loginu, lub email który już jest w tabeli
+        }
+        catch (SQLException e) {
             e.printStackTrace();
         }
+
         return -1;
     }
 
@@ -344,7 +351,7 @@ public class Serwer implements Runnable
             hasło = in.readLine();
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") != -1)
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
                 System.out.println("Baza wybrana");
             else
                 System.out.println("Baza niewybrana!");
@@ -385,20 +392,33 @@ public class Serwer implements Runnable
             typ = in.readLine();
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") != -1)
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
                 System.out.println("Baza wybrana");
             else
                 System.out.println("Baza niewybrana!");
-            if (executeUpdate(st, "INSERT INTO uzytkownicy (login, haslo, Imie, Nazwisko, Email, typ, CzyZatwierdzony) values ('"+login+"', '"+hasło+"', '"+Imie+"', '"+Nazwisko+"', '"+Email+"', '"+typ+"', 0);") != -1)
+            if (executeUpdate(st, "INSERT INTO uzytkownicy (login, haslo, Imie, Nazwisko, Email, typ, CzyZatwierdzony) values ('"+login+"', '"+hasło+"', '"+Imie+"', '"+Nazwisko+"', '"+Email+"', '"+typ+"', 0);") > -1)
+            {
                 System.out.println("Zarejestrowano uzytkownika");
+                out.println("ok");
+            }
+            else if (executeUpdate(st, "INSERT INTO uzytkownicy (login, haslo, Imie, Nazwisko, Email, typ, CzyZatwierdzony) values ('"+login+"', '"+hasło+"', '"+Imie+"', '"+Nazwisko+"', '"+Email+"', '"+typ+"', 0);") == -5)
+            {
+                System.out.println("Duplikat loginu lub email");
+                out.println("duplikat");
+            }
             else
+            {
                 System.out.println("Nie zarejestrowano uzytkownika!");
+                out.println("bledne");
+            }
+            out.flush();
             Menu(in,out);
         }
         catch (IOException ex)
         {
             ex.printStackTrace();
         }
+
     }
 
     private void przypomnienie(BufferedReader in, PrintWriter out)
@@ -409,7 +429,7 @@ public class Serwer implements Runnable
             email = in.readLine();
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") != -1)
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
                 System.out.println("Baza wybrana");
             else
                 System.out.println("Baza niewybrana!");
