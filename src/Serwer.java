@@ -118,7 +118,7 @@ public class Serwer implements Runnable
                 System.out.println("Tabela Uzytkownicy istnieje");
             }
             else {
-                if (executeUpdate(st, "CREATE TABLE Uzytkownicy (login VARCHAR(50) unique NOT NULL, haslo VARCHAR(50) NOT NULL, Imie VARCHAR(50) NOT NULL, Nazwisko VARCHAR(50) primary key NOT NULL, Email VARCHAR(50) NOT NULL, typ enum(\"student\",\"prowadzacy\",\"administrator\") NOT NULL, Prowadzone_przedmioty VARCHAR(250), Uczeszczane_przedmioty VARCHAR(250) );") != -1)
+                if (executeUpdate(st, "CREATE TABLE Uzytkownicy (login VARCHAR(50) unique NOT NULL, haslo VARCHAR(50) NOT NULL, Imie VARCHAR(50) NOT NULL, Nazwisko VARCHAR(50) primary key NOT NULL, Email VARCHAR(50) NOT NULL, typ enum(\"student\",\"prowadzacy\",\"administrator\") NOT NULL, Prowadzone_przedmioty VARCHAR(250), Uczeszczane_przedmioty VARCHAR(250), CzyZatwierdzony tinyint(1) not null);") != -1)
                     System.out.println("Tabela Uzytkownicy utworzona");
                 else
                     System.out.println("Tabela Uzytkownicy nie utworzona!");
@@ -369,7 +369,7 @@ public class Serwer implements Runnable
                 System.out.println("Baza wybrana");
             else
                 System.out.println("Baza niewybrana!");
-            if (executeUpdate(st, "INSERT INTO uzytkownicy (login, haslo, Imie, Nazwisko, Email, typ) values ('"+login+"', '"+hasło+"', '"+Imie+"', '"+Nazwisko+"', '"+Email+"', '"+typ+"');") != -1)
+            if (executeUpdate(st, "INSERT INTO uzytkownicy (login, haslo, Imie, Nazwisko, Email, typ, CzyZatwierdzony) values ('"+login+"', '"+hasło+"', '"+Imie+"', '"+Nazwisko+"', '"+Email+"', '"+typ+"', 0);") != -1)
                 System.out.println("Zarejestrowano uzytkownika");
             else
                 System.out.println("Nie zarejestrowano uzytkownika!");
