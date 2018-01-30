@@ -309,6 +309,11 @@ public class Serwer implements Runnable
             {
                 logowanie(in,out);
             }
+            if(tekst.equals("zmiana_danych"))
+            {
+                System.out.println("zmiana danych");
+                wyslijDaneDoZmiany(in, out);
+            }
             if(tekst.equals("przypomnienie"))
             {
                 System.out.println("przypomnienie hasła");
@@ -461,5 +466,62 @@ public class Serwer implements Runnable
         {
             ex.printStackTrace();
         }
+    }
+
+    private void wyslijDaneDoZmiany(BufferedReader in, PrintWriter out)
+    {
+        try
+        {
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM uzytkownicy WHERE login='"+ObecnieZalogowany+"';");
+            if (wyniklogowania.next())
+            {
+                String haslo,imie,nazwisko,email;
+                haslo= wyniklogowania.getString("haslo");
+                imie= wyniklogowania.getString("Imie");
+                nazwisko= wyniklogowania.getString("Nazwisko");
+                email= wyniklogowania.getString("Email");
+                out.println(ObecnieZalogowany);
+                out.println(haslo);
+                out.println(imie);
+                out.println(nazwisko);
+                out.println(email);
+                out.flush();
+                zmianaDanych(in, out);
+            }
+            else
+            {
+                System.out.println("Brak zalogowanego uzytkownika w bazie");
+                out.println("brak");
+                out.flush();
+                Menu(in,out);
+            }
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    private void zmianaDanych(BufferedReader in, PrintWriter out)
+    {
+        try
+        {
+            String tekst=in.readLine();
+            if (tekst.equals("koniec"))
+            {
+                Menu(in,out);
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        Menu(in,out);
     }
 }
