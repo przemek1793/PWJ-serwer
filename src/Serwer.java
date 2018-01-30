@@ -311,13 +311,18 @@ public class Serwer implements Runnable
             }
             if(tekst.equals("zmiana_danych"))
             {
-                System.out.println("zmiana danych");
+                System.out.println("ładowanie danych");
                 wyslijDaneDoZmiany(in, out);
             }
             if(tekst.equals("przypomnienie"))
             {
                 System.out.println("przypomnienie hasła");
                 przypomnienie(in,out);
+            }
+            if(tekst.equals("zmiana"))
+            {
+                System.out.println("zmiana danych");
+                zmianaDanych(in,out);
             }
             if(tekst.equals("wylogowanie"))
             {
@@ -491,16 +496,14 @@ public class Serwer implements Runnable
                 out.println(imie);
                 out.println(nazwisko);
                 out.println(email);
-                out.flush();
-                zmianaDanych(in, out);
             }
             else
             {
                 System.out.println("Brak zalogowanego uzytkownika w bazie");
                 out.println("brak");
-                out.flush();
-                Menu(in,out);
             }
+            out.flush();
+            Menu(in,out);
         }
         catch (Exception ex)
         {
@@ -512,11 +515,35 @@ public class Serwer implements Runnable
     {
         try
         {
-            String tekst=in.readLine();
-            if (tekst.equals("koniec"))
+            String login,hasło,imie,nazwisko,email;
+            login=in.readLine();
+            hasło=in.readLine();
+            imie=in.readLine();
+            nazwisko=in.readLine();
+            email=in.readLine();
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            if (executeUpdate(st, "UPDATE uzytkownicy SET login='"+login+"', haslo='"+hasło+"', Imie='"+imie+"', Nazwisko='"+nazwisko+"', Email='"+email+"' WHERE login='"+ObecnieZalogowany+"';") > -1)
             {
-                Menu(in,out);
+                System.out.println("Zmieniono dane");
+                ObecnieZalogowany=login;
+                out.println("ok");
             }
+            else if (executeUpdate(st, "UPDATE uzytkownicy SET login='"+login+"', haslo='"+hasło+"', Imie='"+imie+"', Nazwisko='"+nazwisko+"', Email='"+email+"' WHERE login='"+ObecnieZalogowany+"';") == -5)
+            {
+                System.out.println("Duplikat loginu lub email");
+                out.println("duplikat");
+            }
+            else
+            {
+                System.out.println("Nie zmieniono danych!");
+                out.println("bledne");
+            }
+            out.flush();
         }
         catch (Exception e)
         {
