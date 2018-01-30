@@ -1,3 +1,5 @@
+import com.google.api.client.googleapis.json.GoogleJsonResponseException;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -119,7 +121,7 @@ public class Serwer implements Runnable
                 System.out.println("Tabela Uzytkownicy istnieje");
             }
             else {
-                if (executeUpdate(st, "CREATE TABLE Uzytkownicy (login VARCHAR(50) unique NOT NULL, haslo VARCHAR(50) NOT NULL, Imie VARCHAR(50) NOT NULL, Nazwisko VARCHAR(50) primary key NOT NULL, Email VARCHAR(50) NOT NULL, typ enum(\"student\",\"prowadzacy\",\"administrator\") NOT NULL, Prowadzone_przedmioty VARCHAR(250), Uczeszczane_przedmioty VARCHAR(250), CzyZatwierdzony tinyint(1) not null);") != -1)
+                if (executeUpdate(st, "CREATE TABLE Uzytkownicy (login VARCHAR(50) unique NOT NULL, haslo VARCHAR(50) NOT NULL, Imie VARCHAR(50) NOT NULL, Nazwisko VARCHAR(50) primary key NOT NULL, Email VARCHAR(50) unique NOT NULL, typ enum(\"student\",\"prowadzacy\",\"administrator\") NOT NULL, Prowadzone_przedmioty VARCHAR(250), Uczeszczane_przedmioty VARCHAR(250), CzyZatwierdzony tinyint(1) not null);") != -1)
                     System.out.println("Tabela Uzytkownicy utworzona");
                 else
                     System.out.println("Tabela Uzytkownicy nie utworzona!");
@@ -415,8 +417,17 @@ public class Serwer implements Runnable
             if (wyniklogowania.next())
             {
                 System.out.println("Znaleziono adres email w bazie");
-                out.println("poprawne");
-                GoogleMail.send(GoogleMail.getGmailService(),"przemek1793@gmail.com","","pwj.planlekcji@gmail.com","Super tytuł2","chuj ci w aaa");
+                String login= wyniklogowania.getString("login");
+                String haslo= wyniklogowania.getString("haslo");
+                try
+                {
+                    GoogleMail.send(GoogleMail.getGmailService(),email,"","pwj.planlekcji@gmail.com","Pwj - plan lekcji. Przypomnienie hasła","login - "+login+"\nhasło - "+haslo );
+                    out.println("poprawne");
+                }
+                catch (GoogleJsonResponseException e)
+                {
+                    out.println("zły email");
+                }
             }
             else
             {
