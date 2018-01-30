@@ -143,6 +143,16 @@ public class Serwer implements Runnable
                 else
                     System.out.println("Tabela Serwery nie utworzona!");
             }
+            tables = dbm.getTables(null, null, "Zmiany", null);
+            if (tables.next()) {
+                System.out.println("Tabela Zmiany istnieje");
+            }
+            else {
+                if (executeUpdate(st, "CREATE TABLE Zmiany (Tabela VARCHAR(50) NOT NULL, Klucz VARCHAR(50) NOT NULL, KolumnaDoZmiany VARCHAR(50) NOT NULL, NowaWartosc VARCHAR(50) NOT NULL);") != -1)
+                    System.out.println("Tabela Zmiany utworzona");
+                else
+                    System.out.println("Tabela Zmiany nie utworzona!");
+            }
         }
         catch (SQLException e)
         {
