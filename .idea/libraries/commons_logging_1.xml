@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="commons-logging-1">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../commons-logging-1.2" />
+      <root url="file://$PROJECT_DIR$/../../google-api-java-client" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/../../commons-logging-1.2/apidocs" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../google-api-java-client" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../../commons-logging-1.2" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../google-api-java-client" recursive="false" />
+  </library>
+</component>

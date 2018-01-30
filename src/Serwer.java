@@ -416,6 +416,7 @@ public class Serwer implements Runnable
             {
                 System.out.println("Znaleziono adres email w bazie");
                 out.println("poprawne");
+    //            GoogleMail.send(GoogleMail.getGmail());
             }
             else
             {
