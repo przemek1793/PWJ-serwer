@@ -12,6 +12,7 @@ public class Serwer implements Runnable
     static String NazwaUzytkownika="PWJ";
     static String HasłoDoBazy="asdf";
     String TypZalogowanego="";
+    String ObecnieZalogowany="";
     Serwer(Socket csocket)
     {
         this.csocket = csocket;
@@ -308,6 +309,7 @@ public class Serwer implements Runnable
             {
                 System.out.println("wylogowano");
                 TypZalogowanego="";
+                ObecnieZalogowany="";
                 Menu(in,out);
             }
         }
@@ -352,6 +354,7 @@ public class Serwer implements Runnable
                 out.println("poprawne");
                 out.println(typ);
                 TypZalogowanego=typ;
+                ObecnieZalogowany=login;
             }
             else
             {

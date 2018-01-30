@@ -8,5 +8,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="mysql-connector-java-5.1" level="project" />
+    <orderEntry type="library" name="javamail-1.4" level="project" />
+    <orderEntry type="library" name="gmail" level="project" />
+    <orderEntry type="library" name="google-api-client-1.23.0" level="project" />
   </component>
 </module>
