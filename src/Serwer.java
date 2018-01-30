@@ -35,7 +35,7 @@ public class Serwer implements Runnable
      *
      * @return referencja do uchwytu bazy danych
      */
-    public static Connection getConnection(String adres, int port) {
+    private static Connection getConnection(String adres, int port) {
 
         Connection conn = null;
         Properties connectionProps = new Properties();
@@ -277,7 +277,7 @@ public class Serwer implements Runnable
         }
     }
 
-    public void Menu (BufferedReader in, PrintWriter out)
+    private void Menu (BufferedReader in, PrintWriter out)
     {
         try
         {
@@ -298,6 +298,11 @@ public class Serwer implements Runnable
             if(tekst.equals("logowanie"))
             {
                 logowanie(in,out);
+            }
+            if(tekst.equals("przypomnienie"))
+            {
+                System.out.println("przypomnienie hasła");
+                przypomnienie(in,out);
             }
             if(tekst.equals("wylogowanie"))
             {
@@ -326,7 +331,7 @@ public class Serwer implements Runnable
         }
     }
 
-    public void logowanie(BufferedReader in, PrintWriter out)
+    private void logowanie(BufferedReader in, PrintWriter out)
     {
         String login,hasło;
         try
@@ -362,7 +367,7 @@ public class Serwer implements Runnable
         }
     }
 
-    public void rejestracja(BufferedReader in, PrintWriter out)
+    private void rejestracja(BufferedReader in, PrintWriter out)
     {
         String login,hasło,Imie,Nazwisko,Email,typ;
         try
@@ -386,6 +391,38 @@ public class Serwer implements Runnable
             Menu(in,out);
         }
         catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    private void przypomnienie(BufferedReader in, PrintWriter out)
+    {
+        String email;
+        try
+        {
+            email = in.readLine();
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") != -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM uzytkownicy WHERE Email='"+email+"';");
+            if (wyniklogowania.next())
+            {
+                System.out.println("Znaleziono adres email w bazie");
+                out.println("poprawne");
+            }
+            else
+            {
+                System.out.println("bledne dane");
+                out.println("bledne");
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (Exception ex)
         {
             ex.printStackTrace();
         }
