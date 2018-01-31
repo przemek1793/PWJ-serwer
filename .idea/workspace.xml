@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc5ffca5-4e66-4f16-b521-322cda87d016" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/Serwer.java" afterPath="$PROJECT_DIR$/src/Serwer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,12 +20,27 @@
       <file leaf-file-name="Serwer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Serwer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="968" column="28" lean-forward="false" selection-start-line="968" selection-start-column="28" selection-end-line="968" selection-end-column="28" />
+            <state relative-caret-position="3502">
+              <caret line="1011" column="58" lean-forward="false" selection-start-line="1011" selection-start-column="58" selection-end-line="1011" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#615#616#0" expanded="true" />
                 <element signature="e#653#654#0" expanded="true" />
+                <element signature="method#ladujSterownik#0;class#Serwer#0" expanded="false" />
+                <element signature="docComment;method#getConnection#0;class#Serwer#0" expanded="false" />
+                <element signature="method#getConnection#0;class#Serwer#0" expanded="false" />
+                <element signature="docComment;method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+                <element signature="method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+                <element signature="docComment;method#createStatement#0;class#Serwer#0" expanded="false" />
+                <element signature="method#createStatement#0;class#Serwer#0" expanded="false" />
+                <element signature="docComment;method#executeQuery#0;class#Serwer#0" expanded="false" />
+                <element signature="method#executeQuery#0;class#Serwer#0" expanded="false" />
+                <element signature="docComment;method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+                <element signature="method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+                <element signature="docComment;method#closeConnection#0;class#Serwer#0" expanded="false" />
+                <element signature="method#closeConnection#0;class#Serwer#0" expanded="false" />
+                <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
+                <element signature="method#run#0;class#Serwer#0" expanded="false" />
                 <element signature="method#main#0;class#Serwer#0" expanded="false" />
                 <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
                 <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
@@ -37,8 +51,10 @@
                 <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
                 <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
                 <element signature="method#wyslijListeProwadzonychZajec#0;class#Serwer#0" expanded="false" />
+                <element signature="method#zapiszNaZajecia#0;class#Serwer#0" expanded="false" />
                 <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
                 <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
+                <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -331,7 +347,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="18" />
+      <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -344,6 +360,21 @@
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
             <element signature="e#653#654#0" expanded="true" />
+            <element signature="method#ladujSterownik#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
+            <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
             <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
@@ -354,8 +385,10 @@
             <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeProwadzonychZajec#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zapiszNaZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -368,6 +401,21 @@
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
             <element signature="e#653#654#0" expanded="true" />
+            <element signature="method#ladujSterownik#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
+            <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
             <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
@@ -378,8 +426,10 @@
             <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeProwadzonychZajec#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zapiszNaZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -392,6 +442,21 @@
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
             <element signature="e#653#654#0" expanded="true" />
+            <element signature="method#ladujSterownik#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
+            <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
             <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
@@ -402,8 +467,10 @@
             <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeProwadzonychZajec#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zapiszNaZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -416,6 +483,21 @@
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
             <element signature="e#653#654#0" expanded="true" />
+            <element signature="method#ladujSterownik#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
+            <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
             <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
@@ -426,8 +508,10 @@
             <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeProwadzonychZajec#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zapiszNaZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -450,6 +534,21 @@
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
             <element signature="e#653#654#0" expanded="true" />
+            <element signature="method#ladujSterownik#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
+            <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
             <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
@@ -460,8 +559,10 @@
             <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeProwadzonychZajec#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zapiszNaZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -506,6 +607,21 @@
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
             <element signature="e#653#654#0" expanded="true" />
+            <element signature="method#ladujSterownik#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
+            <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
             <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
@@ -516,8 +632,10 @@
             <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeProwadzonychZajec#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zapiszNaZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -538,6 +656,21 @@
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
             <element signature="e#653#654#0" expanded="true" />
+            <element signature="method#ladujSterownik#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
+            <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
             <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
@@ -548,8 +681,10 @@
             <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeProwadzonychZajec#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zapiszNaZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -562,6 +697,21 @@
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
             <element signature="e#653#654#0" expanded="true" />
+            <element signature="method#ladujSterownik#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
+            <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
             <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
@@ -572,8 +722,10 @@
             <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeProwadzonychZajec#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zapiszNaZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -586,6 +738,21 @@
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
             <element signature="e#653#654#0" expanded="true" />
+            <element signature="method#ladujSterownik#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
+            <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
             <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
@@ -596,8 +763,10 @@
             <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeProwadzonychZajec#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zapiszNaZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -610,6 +779,21 @@
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
             <element signature="e#653#654#0" expanded="true" />
+            <element signature="method#ladujSterownik#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
+            <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
             <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
@@ -620,8 +804,10 @@
             <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeProwadzonychZajec#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zapiszNaZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -634,6 +820,21 @@
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
             <element signature="e#653#654#0" expanded="true" />
+            <element signature="method#ladujSterownik#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
+            <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
             <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
@@ -644,8 +845,10 @@
             <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeProwadzonychZajec#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zapiszNaZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -658,6 +861,21 @@
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
             <element signature="e#653#654#0" expanded="true" />
+            <element signature="method#ladujSterownik#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
+            <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
             <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
@@ -668,8 +886,10 @@
             <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeProwadzonychZajec#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zapiszNaZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -767,12 +987,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Serwer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="968" column="28" lean-forward="false" selection-start-line="968" selection-start-column="28" selection-end-line="968" selection-end-column="28" />
+        <state relative-caret-position="3502">
+          <caret line="1011" column="58" lean-forward="false" selection-start-line="1011" selection-start-column="58" selection-end-line="1011" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
             <element signature="e#653#654#0" expanded="true" />
+            <element signature="method#ladujSterownik#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="method#connectToDatabase#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="method#createStatement#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="method#printDataFromQuery#0;class#Serwer#0" expanded="false" />
+            <element signature="docComment;method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#closeConnection#0;class#Serwer#0" expanded="false" />
+            <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
+            <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
             <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
@@ -783,8 +1018,10 @@
             <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeProwadzonychZajec#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zapiszNaZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
+            <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
