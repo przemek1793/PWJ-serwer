@@ -344,6 +344,11 @@ public class Serwer implements Runnable
                 System.out.println("Zapisywanie na zajęcia");
                 zapiszNaZajecia(in,out);
             }
+            if(tekst.equals("prowadz nowe zajecia"))
+            {
+                System.out.println("Prowadzenie nowych zajęć");
+                prowadzNoweZajecia(in,out);
+            }
             if(tekst.equals("wylogowanie"))
             {
                 System.out.println("wylogowano");
@@ -804,5 +809,91 @@ public class Serwer implements Runnable
             e.printStackTrace();
         }
         return nazwisko;
+    }
+
+    private void prowadzNoweZajecia(BufferedReader in, PrintWriter out)
+    {
+        String nazwa,nazwisko;
+        try
+        {
+            nazwisko=getNazwiskoZalogowanego();
+            if (!TypZalogowanego.equals("prowadzacy"))
+            {
+                out.println("brak uprawnien");
+            }
+            else
+            {
+                out.println("ok");
+                out.flush();
+                nazwa = in.readLine();
+                Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+                Statement st = createStatement(con);
+                if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                    System.out.println("Baza wybrana");
+                else
+                    System.out.println("Baza niewybrana!");
+                ResultSet wynik = executeQuery(st, "SELECT * FROM `przedmioty` WHERE Nazwa='"+nazwa+"'");
+                try
+                {
+                    if (wynik.next())
+                    {
+                        String nazwisko_prowadzacego= wynik.getString("Nazwisko_prowadzacego");
+                        //jest już zapisany na przemiot
+                        if (nazwisko_prowadzacego.equals(nazwisko))
+                        {
+                            System.out.println("Już prowadzi przedmiot!");
+                            out.println("duplikat2");
+                        }
+                        // nie jest zapisany na przedmiot
+                        else
+                        {
+                            try
+                            {
+                                ResultSet duplikat = executeQuery(st, "SELECT * FROM `zmiany` WHERE Klucz='"+nazwa+"'and Tabela='przedmioty' and KolumnaDoZmiany='Nazwisko_prowadzacego' and NowaWartosc='"+nazwisko+"'");
+                                // ta zmiana już jest w bazie danych
+                                if (duplikat.next())
+                                {
+                                    System.out.println("Zmiana już jest w bazie danych");
+                                    out.println("duplikat");
+                                }
+                                //dodawane do tabeli zmian w której będzie oczekiwało na zaakceptowanie przez administratora
+                                else
+                                {
+                                    if (executeUpdate(st, "Insert into `zmiany` (Tabela, Klucz, KolumnaDoZmiany, NowaWartosc) values ( 'przedmioty', '"+nazwa+"', 'Nazwisko_prowadzacego', '"+nazwisko+"')") > -1)
+                                    {
+                                        System.out.println("Dodano do kolumny zmian");
+                                        out.println("ok");
+                                    }
+                                    else
+                                    {
+                                        System.out.println("Nie dodano!");
+                                        out.println("bledne");
+                                    }
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        System.out.println("Nie znaleziono przedmiotu!");
+                        out.println("bledne");
+                    }
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
     }
 }
