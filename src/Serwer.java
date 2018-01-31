@@ -339,6 +339,11 @@ public class Serwer implements Runnable
                 System.out.println("Wysyłanie listy zajęć");
                 wyslijListeZajec(in,out);
             }
+            if(tekst.equals("lista prowadzonych zajec"))
+            {
+                System.out.println("Wysyłanie listy prowadzonych zajęć");
+                wyslijListeProwadzonychZajec(in,out);
+            }
             if(tekst.equals("zapisz na zajecia"))
             {
                 System.out.println("Zapisywanie na zajęcia");
@@ -676,13 +681,56 @@ public class Serwer implements Runnable
                 wyniklogowania.last();
                 size = wyniklogowania.getRow();
                 wyniklogowania.beforeFirst();
+                out.println(size);
+                while (wyniklogowania.next())
+                {
+                    String nazwa;
+                    nazwa= wyniklogowania.getString("Nazwa");
+                    out.println(nazwa);
+                }
             }
-            out.println(size);
-            while (wyniklogowania.next())
+            else
             {
-                String nazwa;
-                nazwa= wyniklogowania.getString("Nazwa");
-                out.println(nazwa);
+                out.println(size);
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    private void wyslijListeProwadzonychZajec(BufferedReader in, PrintWriter out)
+    {
+        try
+        {
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `przedmioty` where Nazwisko_prowadzacego='"+getNazwiskoZalogowanego()+"' ;");
+            int size= 0;
+            if (wyniklogowania != null)
+            {
+                wyniklogowania.beforeFirst();
+                wyniklogowania.last();
+                size = wyniklogowania.getRow();
+                wyniklogowania.beforeFirst();
+                out.println(size);
+                while (wyniklogowania.next())
+                {
+                    String nazwa;
+                    nazwa= wyniklogowania.getString("Nazwa");
+                    out.println(nazwa);
+                }
+            }
+            else
+            {
+                out.println(size);
             }
             out.flush();
             Menu(in,out);
