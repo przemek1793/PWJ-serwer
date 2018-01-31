@@ -413,12 +413,21 @@ public class Serwer implements Runnable
             ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM uzytkownicy WHERE haslo='"+hasło+"' and login='"+login+"';");
             if (wyniklogowania.next())
             {
+                boolean zatwierdzony =wyniklogowania.getBoolean("CzyZatwierdzony");
                 String typ= wyniklogowania.getString("typ");
-                System.out.println("Udalo sie zalogowac");
-                out.println("poprawne");
-                out.println(typ);
-                TypZalogowanego=typ;
-                ObecnieZalogowany=login;
+                if (zatwierdzony)
+                {
+                    System.out.println("Udalo sie zalogowac");
+                    out.println("poprawne");
+                    out.println(typ);
+                    TypZalogowanego=typ;
+                    ObecnieZalogowany=login;
+                }
+                else
+                {
+                    System.out.println("Nie zatwierdzony");
+                    out.println("nie zatwierdzony");
+                }
             }
             else
             {

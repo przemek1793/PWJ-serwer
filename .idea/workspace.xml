@@ -20,8 +20,8 @@
       <file leaf-file-name="Serwer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Serwer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="754">
-              <caret line="1034" column="4" lean-forward="false" selection-start-line="1034" selection-start-column="4" selection-end-line="1034" selection-end-column="4" />
+            <state relative-caret-position="569">
+              <caret line="440" column="9" lean-forward="true" selection-start-line="440" selection-start-column="9" selection-end-line="440" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#615#616#0" expanded="true" />
@@ -42,7 +42,6 @@
                 <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
                 <element signature="method#run#0;class#Serwer#0" expanded="false" />
                 <element signature="method#main#0;class#Serwer#0" expanded="false" />
-                <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
                 <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
                 <element signature="method#przypomnienie#0;class#Serwer#0" expanded="false" />
                 <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
@@ -378,7 +377,6 @@
             <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
             <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
-            <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
             <element signature="method#przypomnienie#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
@@ -421,7 +419,6 @@
             <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
             <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
-            <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
             <element signature="method#przypomnienie#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
@@ -464,7 +461,6 @@
             <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
             <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
-            <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
             <element signature="method#przypomnienie#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
@@ -507,7 +503,6 @@
             <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
             <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
-            <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
             <element signature="method#przypomnienie#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
@@ -560,7 +555,6 @@
             <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
             <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
-            <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
             <element signature="method#przypomnienie#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
@@ -635,7 +629,6 @@
             <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
             <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
-            <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
             <element signature="method#przypomnienie#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
@@ -686,7 +679,6 @@
             <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
             <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
-            <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
             <element signature="method#przypomnienie#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
@@ -729,7 +721,6 @@
             <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
             <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
-            <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
             <element signature="method#przypomnienie#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
@@ -772,7 +763,6 @@
             <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
             <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
-            <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
             <element signature="method#przypomnienie#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
@@ -815,7 +805,6 @@
             <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
             <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
-            <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
             <element signature="method#przypomnienie#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
@@ -858,7 +847,6 @@
             <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
             <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
-            <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
             <element signature="method#przypomnienie#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
@@ -901,7 +889,6 @@
             <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
             <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
-            <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
             <element signature="method#przypomnienie#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
@@ -1013,8 +1000,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Serwer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="754">
-          <caret line="1034" column="4" lean-forward="false" selection-start-line="1034" selection-start-column="4" selection-end-line="1034" selection-end-column="4" />
+        <state relative-caret-position="569">
+          <caret line="440" column="9" lean-forward="true" selection-start-line="440" selection-start-column="9" selection-end-line="440" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
@@ -1035,7 +1022,6 @@
             <element signature="method#executeUpdate#0;class#Serwer#0" expanded="false" />
             <element signature="method#run#0;class#Serwer#0" expanded="false" />
             <element signature="method#main#0;class#Serwer#0" expanded="false" />
-            <element signature="method#logowanie#0;class#Serwer#0" expanded="false" />
             <element signature="method#rejestracja#0;class#Serwer#0" expanded="false" />
             <element signature="method#przypomnienie#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
