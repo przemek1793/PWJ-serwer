@@ -324,6 +324,11 @@ public class Serwer implements Runnable
                 System.out.println("zmiana danych");
                 zmianaDanych(in,out);
             }
+            if(tekst.equals("lista_prowadzacych"))
+            {
+                System.out.println("Wysyłanie listy wykładowców");
+                wyslijListeWykladowcow(in,out);
+            }
             if(tekst.equals("wylogowanie"))
             {
                 System.out.println("wylogowano");
@@ -550,5 +555,40 @@ public class Serwer implements Runnable
             e.printStackTrace();
         }
         Menu(in,out);
+    }
+
+    private void wyslijListeWykladowcow(BufferedReader in, PrintWriter out)
+    {
+        try
+        {
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `uzytkownicy` WHERE typ='prowadzacy';");
+            int size= 0;
+            if (wyniklogowania != null)
+            {
+                wyniklogowania.beforeFirst();
+                wyniklogowania.last();
+                size = wyniklogowania.getRow();
+                wyniklogowania.beforeFirst();
+            }
+            out.println(size);
+            while (wyniklogowania.next())
+            {
+                String nazwisko;
+                nazwisko= wyniklogowania.getString("Nazwisko");
+                out.println(nazwisko);
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
     }
 }
