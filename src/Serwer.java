@@ -329,6 +329,11 @@ public class Serwer implements Runnable
                 System.out.println("Wysyłanie listy wykładowców");
                 wyslijListeWykladowcow(in,out);
             }
+            if(tekst.equals("nowy_przedmiot"))
+            {
+                System.out.println("Tworzenie nowego przedmiotu");
+                nowyPrzedmiot(in,out);
+            }
             if(tekst.equals("wylogowanie"))
             {
                 System.out.println("wylogowano");
@@ -590,5 +595,52 @@ public class Serwer implements Runnable
         {
             ex.printStackTrace();
         }
+    }
+
+    private void nowyPrzedmiot(BufferedReader in, PrintWriter out)
+    {
+        String nazwa,Nazwisko;
+        try
+        {
+            if (!TypZalogowanego.equals("administrator"))
+            {
+                out.println("brak uprawnien");
+            }
+            else
+            {
+                out.println("ok");
+                out.flush();
+                nazwa = in.readLine();
+                Nazwisko = in.readLine();
+                Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+                Statement st = createStatement(con);
+                if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                    System.out.println("Baza wybrana");
+                else
+                    System.out.println("Baza niewybrana!");
+                if (executeUpdate(st, "Insert into `przedmioty` (Nazwa, Nazwisko_prowadzacego) values ('"+nazwa+"', '"+Nazwisko+"')") > -1)
+                {
+                    System.out.println("Dodano przedmiot");
+                    out.println("ok");
+                }
+                else if (executeUpdate(st, "Insert into `przedmioty` (Nazwa, Nazwisko_prowadzacego) values ('"+nazwa+"', '"+Nazwisko+"')") == -5)
+                {
+                    System.out.println("Duplikat nazwy");
+                    out.println("duplikat");
+                }
+                else
+                {
+                    System.out.println("Nie dodano przedmiotu!");
+                    out.println("bledne");
+                }
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+
     }
 }
