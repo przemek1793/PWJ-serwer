@@ -376,6 +376,11 @@ public class Serwer implements Runnable
                 ObecnieZalogowany="";
                 Menu(in,out);
             }
+            if(tekst.equals("login szczegoly"))
+            {
+                System.out.println("Wysyłanie szczegółów konta");
+                loginSzczegoly(in,out);
+            }
         }
         catch (IOException ex)
         {
@@ -1065,6 +1070,44 @@ public class Serwer implements Runnable
             Menu(in,out);
         }
         catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    private void loginSzczegoly(BufferedReader in, PrintWriter out)
+    {
+        try
+        {
+            String login = in.readLine();
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM uzytkownicy WHERE login='"+login+"';");
+            if (wyniklogowania.next())
+            {
+                out.println("ok");
+                String imie= wyniklogowania.getString("Imie");
+                String nazwisko= wyniklogowania.getString("Nazwisko");
+                String email= wyniklogowania.getString("Email");
+                String typ= wyniklogowania.getString("typ");
+                out.println(imie);
+                out.println(nazwisko);
+                out.println(email);
+                out.println(typ);
+            }
+            else
+            {
+                System.out.println("Brak uzytkownika w bazie");
+                out.println("brak");
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (Exception ex)
         {
             ex.printStackTrace();
         }
