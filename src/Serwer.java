@@ -354,6 +354,11 @@ public class Serwer implements Runnable
                 System.out.println("Prowadzenie nowych zajęć");
                 prowadzNoweZajecia(in,out);
             }
+            if(tekst.equals("zmiana preferowanych godzin"))
+            {
+                System.out.println("Zmiana preferowanych godzin");
+                zmianaPreferowanychGodzin(in,out);
+            }
             if(tekst.equals("wylogowanie"))
             {
                 System.out.println("wylogowano");
@@ -943,5 +948,37 @@ public class Serwer implements Runnable
         {
             ex.printStackTrace();
         }
+    }
+
+    private void zmianaPreferowanychGodzin(BufferedReader in, PrintWriter out)
+    {
+        try
+        {
+            String nazwa=in.readLine();
+            String godziny=in.readLine();
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            if (executeUpdate(st, "Insert into `zmiany` (Tabela, Klucz, KolumnaDoZmiany, NowaWartosc) values ( 'przedmioty', '"+nazwa+"', 'Preferowany_czas_prowadzacego', '"+godziny+"')") > -1)
+            {
+                System.out.println("Dodano do kolumny zmian");
+                out.println("ok");
+                out.flush();
+            }
+            else
+            {
+                System.out.println("Nie zmieniono!");
+                out.println("bledne");
+                out.flush();
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        Menu(in,out);
     }
 }
