@@ -359,6 +359,11 @@ public class Serwer implements Runnable
                 System.out.println("Prowadzenie nowych zajęć");
                 prowadzNoweZajecia(in,out);
             }
+            if(tekst.equals("zatwierdzanie uzytkownika"))
+            {
+                System.out.println("Zatwierdzanie użytkownika");
+                zatwierdzUzytkownika(in,out);
+            }
             if(tekst.equals("zmiana preferowanych godzin"))
             {
                 System.out.println("Zmiana preferowanych godzin");
@@ -1021,6 +1026,36 @@ public class Serwer implements Runnable
             Menu(in,out);
         }
         catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    private void zatwierdzUzytkownika(BufferedReader in, PrintWriter out)
+    {
+        try
+        {
+            String login = in.readLine();
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            if (executeUpdate(st, "UPDATE `uzytkownicy` SET CzyZatwierdzony=1 where login='"+login+"'") > -1)
+            {
+                System.out.println("Zatwierdzono użytkownika");
+                out.println("ok");
+            }
+            else
+            {
+                System.out.println("Nie zatwierdzono użytkownika!");
+                out.println("bledne");
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (IOException ex)
         {
             ex.printStackTrace();
         }
