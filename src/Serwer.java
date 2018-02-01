@@ -1341,7 +1341,7 @@ public class Serwer implements Runnable
                 System.out.println("Baza wybrana");
             else
                 System.out.println("Baza niewybrana!");
-            ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `uzytkownicy`");
+            ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `uzytkownicy` where login!='"+ObecnieZalogowany+"'");
             int size= 0;
             if (wyniklogowania != null)
             {
