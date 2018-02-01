@@ -105,12 +105,6 @@ public class Serwer implements Runnable
             {
                 connection=connectToDatabase(adress,dataBaseName,userName,password);
             }
-
- //           if (executeUpdate(st, "CREATE TABLE Administrator (id INT unique primary key NOT NULL, login VARCHAR(50) NOT NULL, haslo VARCHAR(50) NOT NULL, Imie VARCHAR(50) NOT NULL, Nazwisko VARCHAR(50) NOT NULL, Mail VARCHAR(50) NOT NULL, adres VARCHAR(50), telefon VARCHAR(50) NOT NULL );") != -1)
- //               System.out.println("Tabela Administrator utworzona");
- //           else
- //               System.out.println("Tabela Administrator nie utworzona!");
-
         }
         Statement st = createStatement(connection);
         //Sprawdzenie czy tabele istnieja, a jesli nie to utworzenie ich
@@ -123,7 +117,11 @@ public class Serwer implements Runnable
             }
             else {
                 if (executeUpdate(st, "CREATE TABLE Uzytkownicy (login VARCHAR(50) unique NOT NULL, haslo VARCHAR(50) NOT NULL, Imie VARCHAR(50) NOT NULL, Nazwisko VARCHAR(50) NOT NULL, Email VARCHAR(50) unique NOT NULL, typ enum(\"student\",\"prowadzacy\",\"administrator\") NOT NULL, Prowadzone_przedmioty VARCHAR(250), Uczeszczane_przedmioty VARCHAR(250), CzyZatwierdzony tinyint(1) not null);") > -1)
+                {
                     System.out.println("Tabela Uzytkownicy utworzona");
+                    // utworzenie zatwierdzonego administratora
+                    executeUpdate(st, "INSERT INTO uzytkownicy (login, haslo, Imie, Nazwisko, Email, typ ,CzyZatwierdzony ) VALUES ('administrator', 'administrator', 'administrator', 'administrator', 'administrator@admin.pl','administrator', 1); ");
+                }
                 else
                     System.out.println("Tabela Uzytkownicy nie utworzona!");
             }
@@ -198,64 +196,6 @@ public class Serwer implements Runnable
             e.printStackTrace();
         }
         return null;
-    }
-
-    /**
-     * Wy�wietla dane uzyskane zapytaniem select
-     *
-     * @param r
-     *            - wynik zapytania
-     */
-    private static void printDataFromQuery(ResultSet r) {
-        ResultSetMetaData rsmd;
-        try {
-            rsmd = r.getMetaData();
-            int numcols = rsmd.getColumnCount(); // pobieranie liczby column
-            // wyswietlanie nazw kolumn:
-            for (int i = 1; i <= numcols; i++) {
-                System.out.print("\t" + rsmd.getColumnLabel(i) + "\t|");
-            }
-            System.out.print("\n____________________________________________________________________________\n");
-            /**
-             * r.next() - przej�cie do kolejnego rekordu (wiersza) otrzymanych
-             * wynik�w
-             */
-            // wyswietlanie kolejnych rekordow:
-            while (r.next()) {
-                for (int i = 1; i <= numcols; i++) {
-                    Object obj = r.getObject(i);
-                    if (obj != null)
-                        System.out.print("\t" + obj.toString() + "\t|");
-                    else
-                        System.out.print("\t");
-                }
-                System.out.println();
-            }
-        } catch (SQLException e) {
-            System.out.println("Bl�d odczytu z bazy! " + e.toString());
-            System.exit(3);
-        }
-    }
-
-    /**
-     * Zamykanie po��czenia z baz� danych
-     *
-     * @param connection
-     *            - po��czenie z baz�
-     * @param s
-     *            - obiekt przesy�aj�cy zapytanie do bazy
-     */
-    private static void closeConnection(Connection connection, Statement s) {
-        System.out.print("\nZamykanie polaczenia z baza�:");
-        try {
-            s.close();
-            connection.close();
-        } catch (SQLException e) {
-            System.out
-                    .println("Bl�d przy zamykaniu pol�czenia " + e.toString());
-            System.exit(4);
-        }
-        System.out.print(" zamkni�cie OK");
     }
 
     private static int executeUpdate(Statement s, String sql) {
@@ -405,6 +345,16 @@ public class Serwer implements Runnable
             {
                 System.out.println("usuwanie zmian");
                 usunZmiane(in,out);
+            }
+            if(tekst.equals("usuwanie uzytkownika"))
+            {
+                System.out.println("usuwanie uzytkownika");
+                usunUzytkownika(in,out);
+            }
+            if(tekst.equals("lista uzytkownikow"))
+            {
+                System.out.println("wysyłanie listy użytkowników");
+                wyslijListeUzytkownikow(in,out);
             }
         }
         catch (IOException ex)
@@ -1345,6 +1295,85 @@ public class Serwer implements Runnable
             Menu(in,out);
         }
         catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    private void usunUzytkownika(BufferedReader in, PrintWriter out)
+    {
+        try
+        {
+            String login;
+            login=in.readLine();
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            if (executeUpdate(st, "DELETE FROM `uzytkownicy` WHERE login ='"+login+"'") > -1)
+            {
+                System.out.println("Usunieto uzytkownika");
+                out.println("ok");
+            }
+            else
+            {
+                System.out.println("Nie usunieto uzytkownika!");
+                out.println("nie usunieto zmiany");
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    private void wyslijListeUzytkownikow(BufferedReader in, PrintWriter out)
+    {
+        try
+        {
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `uzytkownicy`");
+            int size= 0;
+            if (wyniklogowania != null)
+            {
+                wyniklogowania.beforeFirst();
+                wyniklogowania.last();
+                size = wyniklogowania.getRow();
+                wyniklogowania.beforeFirst();
+                out.println(size);
+                while (wyniklogowania.next())
+                {
+                    String login= wyniklogowania.getString("login");
+                    String imie= wyniklogowania.getString("Imie");
+                    String nazwisko= wyniklogowania.getString("Nazwisko");
+                    String email= wyniklogowania.getString("Email");
+                    String typ= wyniklogowania.getString("typ");
+                    String czyZatwierdzono=wyniklogowania.getString("CzyZatwierdzony");
+                    out.println(login);
+                    out.println(imie);
+                    out.println(nazwisko);
+                    out.println(email);
+                    out.println(typ);
+                    out.println(czyZatwierdzono);
+                }
+            }
+            else
+            {
+                out.println(size);
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (Exception ex)
         {
             ex.printStackTrace();
         }
