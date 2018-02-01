@@ -396,6 +396,11 @@ public class Serwer implements Runnable
                 System.out.println("Wysyłanie listy zmian");
                 wyslijListeZmian(in,out);
             }
+            if(tekst.equals("zatwierdzanie zmian"))
+            {
+                System.out.println("Zatwierdzanie zmian");
+                zatwierdzZmiane(in,out);
+            }
         }
         catch (IOException ex)
         {
@@ -1242,6 +1247,58 @@ public class Serwer implements Runnable
             Menu(in,out);
         }
         catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    private void zatwierdzZmiane(BufferedReader in, PrintWriter out)
+    {
+        try
+        {
+            String Tabela, Klucz, Kolumna, Wartosc, NazwaKlucz="";
+            Tabela=in.readLine();
+            Klucz=in.readLine();
+            Kolumna=in.readLine();
+            Wartosc=in.readLine();
+            switch (Tabela)
+            {
+                case "przedmioty" :
+                    NazwaKlucz="Nazwa";
+                    break;
+                case "uzytkownicy" :
+                    NazwaKlucz="login";
+                    break;
+            }
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            if (executeUpdate(st, "UPDATE `"+Tabela+"` SET "+Kolumna+"='"+Wartosc+"' where "+NazwaKlucz+"='"+Klucz+"'") > -1)
+            {
+                System.out.println("Wykonano zmiane");
+                if (executeUpdate(st, "DELETE FROM `zmiany` WHERE NowaWartosc ='"+Wartosc+"' and Tabela ='"+Tabela+"' and KolumnaDoZmiany ='"+Kolumna+"' and Klucz ='"+Klucz+"' ") > -1)
+                {
+                    System.out.println("Usunieto zmiane");
+                    out.println("ok");
+                }
+                else
+                {
+                    System.out.println("Nie usunieto zmiany!");
+                    out.println("nie usunieto zmiany");
+                }
+            }
+            else
+            {
+                System.out.println("Nie wykonano zmiany!");
+                out.println("bledne");
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (IOException ex)
         {
             ex.printStackTrace();
         }

@@ -21,8 +21,8 @@
       <file leaf-file-name="Serwer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Serwer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="1233" column="60" lean-forward="false" selection-start-line="1233" selection-start-column="49" selection-end-line="1233" selection-end-column="60" />
+            <state relative-caret-position="202">
+              <caret line="1278" column="84" lean-forward="false" selection-start-line="1278" selection-start-column="84" selection-end-line="1278" selection-end-column="84" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#615#616#0" expanded="true" />
@@ -60,6 +60,7 @@
                 <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
                 <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
                 <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
+                <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -113,7 +114,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="84" />
     <option name="y" value="5" />
     <option name="width" value="1288" />
@@ -316,7 +317,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -352,7 +353,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="30" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Serwer.java</url>
+          <line>1278</line>
+          <properties />
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="34" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -398,6 +407,7 @@
             <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
+            <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -451,6 +461,7 @@
             <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
+            <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -496,6 +507,7 @@
             <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
+            <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -541,6 +553,7 @@
             <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
+            <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -586,6 +599,7 @@
             <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
+            <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -639,6 +653,7 @@
             <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
+            <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -714,6 +729,7 @@
             <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
+            <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -767,6 +783,7 @@
             <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
+            <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -812,6 +829,7 @@
             <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
+            <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -857,6 +875,7 @@
             <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
+            <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -902,6 +921,7 @@
             <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
+            <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -947,6 +967,7 @@
             <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
+            <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -992,6 +1013,7 @@
             <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
+            <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1089,8 +1111,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Serwer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="1233" column="60" lean-forward="false" selection-start-line="1233" selection-start-column="49" selection-end-line="1233" selection-end-column="60" />
+        <state relative-caret-position="202">
+          <caret line="1278" column="84" lean-forward="false" selection-start-line="1278" selection-start-column="84" selection-end-line="1278" selection-end-column="84" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
@@ -1128,6 +1150,7 @@
             <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
+            <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
