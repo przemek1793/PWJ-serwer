@@ -401,6 +401,11 @@ public class Serwer implements Runnable
                 System.out.println("Zatwierdzanie zmian");
                 zatwierdzZmiane(in,out);
             }
+            if(tekst.equals("usuwanie zmian"))
+            {
+                System.out.println("usuwanie zmian");
+                usunZmiane(in,out);
+            }
         }
         catch (IOException ex)
         {
@@ -1294,6 +1299,40 @@ public class Serwer implements Runnable
             {
                 System.out.println("Nie wykonano zmiany!");
                 out.println("bledne");
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    private void usunZmiane(BufferedReader in, PrintWriter out)
+    {
+        try
+        {
+            String Tabela, Klucz, Kolumna, Wartosc;
+            Tabela=in.readLine();
+            Klucz=in.readLine();
+            Kolumna=in.readLine();
+            Wartosc=in.readLine();
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            if (executeUpdate(st, "DELETE FROM `zmiany` WHERE NowaWartosc ='"+Wartosc+"' and Tabela ='"+Tabela+"' and KolumnaDoZmiany ='"+Kolumna+"' and Klucz ='"+Klucz+"' ") > -1)
+            {
+                System.out.println("Usunieto zmiane");
+                out.println("ok");
+            }
+            else
+            {
+                System.out.println("Nie usunieto zmiany!");
+                out.println("nie usunieto zmiany");
             }
             out.flush();
             Menu(in,out);
