@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc5ffca5-4e66-4f16-b521-322cda87d016" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/Serwer.java" afterPath="$PROJECT_DIR$/src/Serwer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,8 +20,8 @@
       <file leaf-file-name="Serwer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Serwer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="403" column="43" lean-forward="false" selection-start-line="403" selection-start-column="43" selection-end-line="403" selection-end-column="43" />
+            <state relative-caret-position="214">
+              <caret line="1137" column="61" lean-forward="false" selection-start-line="1137" selection-start-column="61" selection-end-line="1137" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#615#616#0" expanded="true" />
@@ -57,7 +56,6 @@
                 <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
                 <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
                 <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-                <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
                 <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
                 <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
                 <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
@@ -319,7 +317,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -329,7 +326,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946146" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946146" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -357,7 +354,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Serwer.java</url>
-          <line>1316</line>
+          <line>1323</line>
           <properties />
           <option name="timeStamp" value="34" />
         </line-breakpoint>
@@ -405,7 +402,6 @@
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
@@ -460,7 +456,6 @@
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
@@ -515,7 +510,6 @@
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
@@ -570,7 +564,6 @@
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
@@ -617,7 +610,6 @@
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
@@ -664,7 +656,6 @@
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
@@ -711,7 +702,6 @@
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
@@ -766,7 +756,6 @@
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
@@ -843,7 +832,6 @@
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
@@ -898,7 +886,6 @@
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
@@ -945,7 +932,6 @@
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
@@ -992,7 +978,6 @@
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
@@ -1039,7 +1024,6 @@
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
@@ -1086,7 +1070,6 @@
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
@@ -1133,7 +1116,6 @@
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />
@@ -1235,8 +1217,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Serwer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="403" column="43" lean-forward="false" selection-start-line="403" selection-start-column="43" selection-end-line="403" selection-end-column="43" />
+        <state relative-caret-position="214">
+          <caret line="1137" column="61" lean-forward="false" selection-start-line="1137" selection-start-column="61" selection-end-line="1137" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
@@ -1271,7 +1253,6 @@
             <element signature="method#getNazwiskoZalogowanego#0;class#Serwer#0" expanded="false" />
             <element signature="method#prowadzNoweZajecia#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaPreferowanychGodzin#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijListeNiezatwierdzonych#0;class#Serwer#0" expanded="false" />
             <element signature="method#zatwierdzUzytkownika#0;class#Serwer#0" expanded="false" />
             <element signature="method#loginSzczegoly#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZmian#0;class#Serwer#0" expanded="false" />

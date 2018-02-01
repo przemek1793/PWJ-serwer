@@ -1131,9 +1131,16 @@ public class Serwer implements Runnable
                 out.println(size);
                 while (wyniklogowania.next())
                 {
-                    String login;
-                    login= wyniklogowania.getString("login");
+                    String login= wyniklogowania.getString("login");
+                    String imie= wyniklogowania.getString("Imie");
+                    String nazwisko= wyniklogowania.getString("Nazwisko");
+                    String email= wyniklogowania.getString("Email");
+                    String typ= wyniklogowania.getString("typ");
                     out.println(login);
+                    out.println(imie);
+                    out.println(nazwisko);
+                    out.println(email);
+                    out.println(typ);
                 }
             }
             else
