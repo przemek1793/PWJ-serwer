@@ -339,6 +339,16 @@ public class Serwer implements Runnable
                 System.out.println("Wysyłanie listy zajęć");
                 wyslijListeZajec(in,out);
             }
+            if(tekst.equals("lista zajec na ktore nie jest zapisany"))
+            {
+                System.out.println("Wysyłanie listy zajęć");
+                wyslijListeZajecNaKtoreNieJestZapisany(in,out);
+            }
+            if(tekst.equals("lista nieprowadzonych zajec"))
+            {
+                System.out.println("Wysyłanie listy nieprowadzonych zajęć");
+                wyslijListeNieprowadzonychZajec(in,out);
+            }
             if(tekst.equals("lista prowadzonych zajec"))
             {
                 System.out.println("Wysyłanie listy prowadzonych zajęć");
@@ -380,6 +390,11 @@ public class Serwer implements Runnable
             {
                 System.out.println("Wysyłanie szczegółów konta");
                 loginSzczegoly(in,out);
+            }
+            if(tekst.equals("lista zmian"))
+            {
+                System.out.println("Wysyłanie listy zmian");
+                wyslijListeZmian(in,out);
             }
         }
         catch (IOException ex)
@@ -731,6 +746,85 @@ public class Serwer implements Runnable
         }
     }
 
+    private void wyslijListeZajecNaKtoreNieJestZapisany(BufferedReader in, PrintWriter out)
+    {
+        try
+        {
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            // przedmioty na które nie jest zapisany
+            ResultSet wynik = executeQuery(st, "SELECT * FROM `przedmioty` WHERE `Uczeszczajacy` NOT LIKE '% "+getNazwiskoZalogowanego()+"%,';");
+            int size= 0;
+            if (wynik != null)
+            {
+                wynik.beforeFirst();
+                wynik.last();
+                size = wynik.getRow();
+                wynik.beforeFirst();
+                out.println(size);
+                while (wynik.next())
+                {
+                    String nazwa;
+                    nazwa= wynik.getString("Nazwa");
+                    out.println(nazwa);
+                }
+            }
+            else
+            {
+                out.println(size);
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    private void wyslijListeNieprowadzonychZajec(BufferedReader in, PrintWriter out)
+    {
+        try
+        {
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `przedmioty` where Nazwisko_prowadzacego!='"+getNazwiskoZalogowanego()+"' ;");
+            int size= 0;
+            if (wyniklogowania != null)
+            {
+                wyniklogowania.beforeFirst();
+                wyniklogowania.last();
+                size = wyniklogowania.getRow();
+                wyniklogowania.beforeFirst();
+                out.println(size);
+                while (wyniklogowania.next())
+                {
+                    String nazwa;
+                    nazwa= wyniklogowania.getString("Nazwa");
+                    out.println(nazwa);
+                }
+            }
+            else
+            {
+                out.println(size);
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
     private void wyslijListeProwadzonychZajec(BufferedReader in, PrintWriter out)
     {
         try
@@ -802,7 +896,7 @@ public class Serwer implements Runnable
                             uczeszczajacy="";
                         }
                         //jest już zapisany na przemiot
-                        if (uczeszczajacy.contains(nazwisko))
+                        if (uczeszczajacy.contains(" "+nazwisko+","))
                         {
                             System.out.println("Jest już zapisany na przedmiot!");
                             out.println("duplikat2");
@@ -1016,7 +1110,7 @@ public class Serwer implements Runnable
                 System.out.println("Baza wybrana");
             else
                 System.out.println("Baza niewybrana!");
-            ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `uzytkownicy` where CzyZatwierdzony="+0+" ;");
+            ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `uzytkownicy` where CzyZatwierdzony="+0);
             int size= 0;
             if (wyniklogowania != null)
             {
@@ -1111,5 +1205,72 @@ public class Serwer implements Runnable
         {
             ex.printStackTrace();
         }
+    }
+
+    private void wyslijListeZmian(BufferedReader in, PrintWriter out)
+    {
+        try
+        {
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            ResultSet wynik = executeQuery(st, "SELECT * FROM `zmiany` WHERE 1;");
+            int size= 0;
+            if (wynik != null)
+            {
+                wynik.beforeFirst();
+                wynik.last();
+                size = wynik.getRow();
+                wynik.beforeFirst();
+                out.println(size);
+                while (wynik.next())
+                {
+                    out.println(wynik.getString("Tabela"));
+                    out.println(wynik.getString("Klucz"));
+                    out.println(wynik.getString("KolumnaDoZmiany"));
+                    out.println(wynik.getString("NowaWartosc"));
+                }
+            }
+            else
+            {
+                out.println(size);
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    private void ustalGodzinyPrzedmiotu ()
+    {
+        Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+        Statement st = createStatement(con);
+        if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+            System.out.println("Baza wybrana");
+        else
+            System.out.println("Baza niewybrana!");
+        ResultSet wynik = executeQuery(st, "SELECT * FROM `przedmioty`;");
+        try
+        {
+            while (wynik.next())
+            {
+                String preferowaneGodziny= wynik.getString("Preferowany_czas_prowadzacego");
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    private void wyslijMailZmianaGodzin ()
+    {
+
     }
 }
