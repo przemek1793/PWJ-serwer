@@ -20,8 +20,8 @@
       <file leaf-file-name="Serwer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Serwer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="1431" column="44" lean-forward="false" selection-start-line="1431" selection-start-column="44" selection-end-line="1431" selection-end-column="44" />
+            <state relative-caret-position="245">
+              <caret line="1430" column="37" lean-forward="false" selection-start-line="1430" selection-start-column="37" selection-end-line="1430" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#615#616#0" expanded="true" />
@@ -39,7 +39,6 @@
                 <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
                 <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
                 <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-                <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
                 <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
                 <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
                 <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -352,13 +351,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Serwer.java</url>
-          <line>1290</line>
+          <line>1295</line>
           <properties />
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Serwer.java</url>
-          <line>1324</line>
+          <line>1329</line>
           <properties />
           <option name="timeStamp" value="35" />
         </line-breakpoint>
@@ -429,7 +428,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -480,7 +478,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -531,7 +528,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -582,7 +578,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -633,7 +628,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -684,7 +678,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -727,7 +720,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -770,7 +762,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -813,7 +804,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -864,7 +854,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -937,7 +926,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -988,7 +976,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -1031,7 +1018,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -1074,7 +1060,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -1117,7 +1102,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -1160,7 +1144,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -1203,7 +1186,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />
@@ -1342,8 +1324,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Serwer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="1431" column="44" lean-forward="false" selection-start-line="1431" selection-start-column="44" selection-end-line="1431" selection-end-column="44" />
+        <state relative-caret-position="245">
+          <caret line="1430" column="37" lean-forward="false" selection-start-line="1430" selection-start-column="37" selection-end-line="1430" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
@@ -1361,7 +1343,6 @@
             <element signature="method#wyslijDaneDoZmiany#0;class#Serwer#0" expanded="false" />
             <element signature="method#zmianaDanych#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeWykladowcow#0;class#Serwer#0" expanded="false" />
-            <element signature="method#nowyPrzedmiot#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeZajecNaKtoreNieJestZapisany#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijListeNieprowadzonychZajec#0;class#Serwer#0" expanded="false" />

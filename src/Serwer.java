@@ -361,6 +361,11 @@ public class Serwer implements Runnable
                 System.out.println("wysyłanie szczegółowej listy zajęć");
                 wyslijSzczegolowaListeZajec(in,out);
             }
+            if(tekst.equals("usuwanie zajec"))
+            {
+                System.out.println("usuwanie przedmiotu");
+                usunPrzedmiot(in,out);
+            }
         }
         catch (IOException ex)
         {
@@ -1422,6 +1427,8 @@ public class Serwer implements Runnable
                     String godziny= wyniklogowania.getString("Godziny_przedmiotu");
                     int ileStudentow=0;
                     String studentci = wyniklogowania.getString("Uczeszczajacy");
+                    if (studentci==null)
+                        studentci="";
                     // jest tylu uczęszczających na przedmiot ile jest przecinków
                     for(int i = 0; i < studentci.length(); i++) {
                         if(studentci.charAt(i) == ',') ileStudentow++;
@@ -1440,6 +1447,37 @@ public class Serwer implements Runnable
             Menu(in,out);
         }
         catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    private void usunPrzedmiot(BufferedReader in, PrintWriter out)
+    {
+        try
+        {
+            String nazwa;
+            nazwa=in.readLine();
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            if (executeUpdate(st, "DELETE FROM `przedmioty` WHERE Nazwa ='"+nazwa+"'") > -1)
+            {
+                System.out.println("Usunieto przedmiot");
+                out.println("ok");
+            }
+            else
+            {
+                System.out.println("Nie usunięto przedmiotu!");
+                out.println("nie usunieto");
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (IOException ex)
         {
             ex.printStackTrace();
         }
