@@ -356,6 +356,11 @@ public class Serwer implements Runnable
                 System.out.println("wysyłanie listy użytkowników");
                 wyslijListeUzytkownikow(in,out);
             }
+            if(tekst.equals("lista zajec ze szczegolowymi informacjami"))
+            {
+                System.out.println("wysyłanie szczegółowej listy zajęć");
+                wyslijSzczegolowaListeZajec(in,out);
+            }
         }
         catch (IOException ex)
         {
@@ -717,7 +722,7 @@ public class Serwer implements Runnable
             else
                 System.out.println("Baza niewybrana!");
             // przedmioty na które nie jest zapisany
-            ResultSet wynik = executeQuery(st, "SELECT * FROM `przedmioty` WHERE `Uczeszczajacy` NOT LIKE '% "+getNazwiskoZalogowanego()+"%,';");
+            ResultSet wynik = executeQuery(st, "SELECT * FROM `przedmioty` WHERE Uczeszczajacy NOT LIKE '%"+getNazwiskoZalogowanego()+",%' or Uczeszczajacy is null;");
             int size= 0;
             if (wynik != null)
             {
@@ -1223,6 +1228,7 @@ public class Serwer implements Runnable
             Klucz=in.readLine();
             Kolumna=in.readLine();
             Wartosc=in.readLine();
+            String nowaWartosc=Wartosc;
             switch (Tabela)
             {
                 case "przedmioty" :
@@ -1238,7 +1244,18 @@ public class Serwer implements Runnable
                 System.out.println("Baza wybrana");
             else
                 System.out.println("Baza niewybrana!");
-            if (executeUpdate(st, "UPDATE `"+Tabela+"` SET "+Kolumna+"='"+Wartosc+"' where "+NazwaKlucz+"='"+Klucz+"'") > -1)
+
+            // dodawanie użytkowników zmienia, a nie zastępuje dotychczasową wartość w bazie danych
+            if (Tabela.equals("przedmioty") && Kolumna.equals("Uczeszczajacy"))
+            {
+                ResultSet wynik = executeQuery(st, "Select Uczeszczajacy From przedmioty where "+NazwaKlucz+"='"+Klucz+"'");
+                wynik.next();
+                String lista= wynik.getString("Uczeszczajacy");
+                if (lista==null)
+                    lista="";
+                nowaWartosc=lista+" "+Wartosc+",";
+            }
+            if (executeUpdate(st, "UPDATE `"+Tabela+"` SET "+Kolumna+"='"+nowaWartosc+"' where "+NazwaKlucz+"='"+Klucz+"'") > -1)
             {
                 System.out.println("Wykonano zmiane");
                 if (executeUpdate(st, "DELETE FROM `zmiany` WHERE NowaWartosc ='"+Wartosc+"' and Tabela ='"+Tabela+"' and KolumnaDoZmiany ='"+Kolumna+"' and Klucz ='"+Klucz+"' ") > -1)
@@ -1260,7 +1277,7 @@ public class Serwer implements Runnable
             out.flush();
             Menu(in,out);
         }
-        catch (IOException ex)
+        catch (Exception ex)
         {
             ex.printStackTrace();
         }
@@ -1364,6 +1381,49 @@ public class Serwer implements Runnable
                     out.println(email);
                     out.println(typ);
                     out.println(czyZatwierdzono);
+                }
+            }
+            else
+            {
+                out.println(size);
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    private void wyslijSzczegolowaListeZajec(BufferedReader in, PrintWriter out)
+    {
+        try
+        {
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `przedmioty` WHERE 1;");
+            int size= 0;
+            if (wyniklogowania != null)
+            {
+                wyniklogowania.beforeFirst();
+                wyniklogowania.last();
+                size = wyniklogowania.getRow();
+                wyniklogowania.beforeFirst();
+                out.println(size);
+                while (wyniklogowania.next())
+                {
+                    String nazwa= wyniklogowania.getString("Nazwa");
+                    String nazwisko= wyniklogowania.getString("Nazwisko_prowadzacego");
+                    String godziny= wyniklogowania.getString("Godziny_przedmiotu");
+                    int ileStudentow=0;
+                    String studentci = wyniklogowania.getString("Uczeszczajacy");
+                    // policzyć przecinki i tyle ile przecinków tyle użytkowników
+                    out.println(nazwa);
                 }
             }
             else
