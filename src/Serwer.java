@@ -1422,8 +1422,14 @@ public class Serwer implements Runnable
                     String godziny= wyniklogowania.getString("Godziny_przedmiotu");
                     int ileStudentow=0;
                     String studentci = wyniklogowania.getString("Uczeszczajacy");
-                    // policzyć przecinki i tyle ile przecinków tyle użytkowników
+                    // jest tylu uczęszczających na przedmiot ile jest przecinków
+                    for(int i = 0; i < studentci.length(); i++) {
+                        if(studentci.charAt(i) == ',') ileStudentow++;
+                    }
                     out.println(nazwa);
+                    out.println(nazwisko);
+                    out.println(godziny);
+                    out.println(ileStudentow);
                 }
             }
             else
