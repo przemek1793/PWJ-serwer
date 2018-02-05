@@ -130,7 +130,7 @@ public class Serwer implements Runnable
                 System.out.println("Tabela Przedmioty istnieje");
             }
             else {
-                if (executeUpdate(st, "CREATE TABLE Przedmioty (Nazwa VARCHAR(50) unique NOT NULL, Nazwisko_prowadzacego VARCHAR(50) NOT NULL, Preferowany_czas_prowadzacego VARCHAR(50), Godziny_przedmiotu VARCHAR(50), Uczeszczajacy VARCHAR(500) );") > -1)
+                if (executeUpdate(st, "CREATE TABLE Przedmioty (Nazwa VARCHAR(50) unique NOT NULL, Nazwisko_prowadzacego VARCHAR(50) NOT NULL, Preferowany_czas_prowadzacego VARCHAR(150), Godziny_przedmiotu VARCHAR(50), Uczeszczajacy VARCHAR(500) );") > -1)
                     System.out.println("Tabela Przedmioty utworzona");
                 else
                     System.out.println("Tabela Przedmioty nie utworzona!");
@@ -150,7 +150,7 @@ public class Serwer implements Runnable
                 System.out.println("Tabela Zmiany istnieje");
             }
             else {
-                if (executeUpdate(st, "CREATE TABLE Zmiany (Tabela VARCHAR(50) NOT NULL, Klucz VARCHAR(50) NOT NULL, KolumnaDoZmiany VARCHAR(50) NOT NULL, NowaWartosc VARCHAR(50) NOT NULL);") > -1)
+                if (executeUpdate(st, "CREATE TABLE Zmiany (Tabela VARCHAR(50) NOT NULL, Klucz VARCHAR(50) NOT NULL, KolumnaDoZmiany VARCHAR(50) NOT NULL, NowaWartosc VARCHAR(150) NOT NULL);") > -1)
                     System.out.println("Tabela Zmiany utworzona");
                 else
                     System.out.println("Tabela Zmiany nie utworzona!");
@@ -669,6 +669,7 @@ public class Serwer implements Runnable
                 }
             }
             out.flush();
+            ustalGodzinyPrzedmiotow(in,out);
             Menu(in,out);
         }
         catch (IOException ex)
@@ -1273,6 +1274,16 @@ public class Serwer implements Runnable
                     System.out.println("Nie usunieto zmiany!");
                     out.println("nie usunieto zmiany");
                 }
+                // przy zmianie preferowanych godzin plan lekcji jest odświeżany
+                if (Tabela.equals("przedmioty") && Kolumna.equals("Preferowany_czas_prowadzacego"))
+                {
+                    ustalGodzinyPrzedmiotow(in,out);
+                }
+                // przy zmianie prowadzącego zajęć plan lekcji jest odświeżany
+                if (Tabela.equals("przedmioty") && Kolumna.equals("Nazwisko_prowadzacego"))
+                {
+                    ustalGodzinyPrzedmiotow(in,out);
+                }
             }
             else
             {
@@ -1475,6 +1486,7 @@ public class Serwer implements Runnable
                 out.println("nie usunieto");
             }
             out.flush();
+            ustalGodzinyPrzedmiotow(in,out);
             Menu(in,out);
         }
         catch (IOException ex)
@@ -1483,20 +1495,106 @@ public class Serwer implements Runnable
         }
     }
 
-    private void ustalGodzinyPrzedmiotu ()
+    private void ustalGodzinyPrzedmiotow (BufferedReader in, PrintWriter out)
     {
+        int ileSal= 1;
         Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
         Statement st = createStatement(con);
         if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
             System.out.println("Baza wybrana");
         else
             System.out.println("Baza niewybrana!");
+        /**
+         * Tabela w która oznacza zajęte godziny [dzień tygodnia][godzina][sala].
+         * Jeśli pole jest nullem to jest wolne, przy zajęciu wpisywane jest nazwisko prowadzącego
+         * pierwszy wymiar to dzień tygodnia w którym będzie odbywał się przedmiot (0 - poniedziałek, 1 - wtorek itd.)
+         * drugi wymiar to godzina zajęć, zajęcia odbywają się w takich godzinach jak na politechnice krakowskiej (0 - 7:30, 1 - 9:15, 2 - 11:00 itd.)
+         * trzeci wymiar to sala w której będzie odbywał się przedmiot
+         */
+        String [][][] godzinyPrzedmiotow = new String[7][8][ileSal];
         ResultSet wynik = executeQuery(st, "SELECT * FROM `przedmioty`;");
         try
         {
             while (wynik.next())
             {
                 String preferowaneGodziny= wynik.getString("Preferowany_czas_prowadzacego");
+                String nazwisko= wynik.getString("Nazwisko_prowadzacego");
+                int ileOkresow=0;
+                //brak preferowanych okresów
+                if (preferowaneGodziny==null)
+                {
+                    boolean znalezionoCzas = false;
+
+                    // sprawdź po kolei dni
+                    for (int i=0; i< godzinyPrzedmiotow.length; i++)
+                    {
+                        // sprawdź po kolei godziny
+                        for (int j=0;j<godzinyPrzedmiotow[0].length;j++)
+                        {
+                            boolean juzMaZajeciaOTejGodzinie=false;
+                            // sprawdź po kolei sale
+                            for (int k=0;k<godzinyPrzedmiotow[0][0].length;k++)
+                            {
+                                if (godzinyPrzedmiotow[i][j][k]!=null)
+                                {
+                                    if (godzinyPrzedmiotow[i][j][k].equals(nazwisko))
+                                        juzMaZajeciaOTejGodzinie=true;
+                                }
+                                //jeśli godzina jest wolna i nie ma zajęć w tej godzinie
+                                if (godzinyPrzedmiotow[i][j][k]==null && !juzMaZajeciaOTejGodzinie)
+                                {
+                                    godzinyPrzedmiotow[i][j][k]=nazwisko;
+                                    znalezionoCzas=true;
+
+                                    String Nazwa= wynik.getString("Nazwa");
+                                    String godzina="";
+                                    switch (i)
+                                    {
+                                        case 0:
+                                            godzina="Poniedzialek";
+                                            break;
+                                        case 1:
+                                            godzina="Wtorek";
+                                            break;
+                                        case 2:
+                                            godzina="Sroda";
+                                            break;
+                                        case 3:
+                                            godzina="Czwartek";
+                                            break;
+                                        case 4:
+                                            godzina="Piatek";
+                                            break;
+                                        case 5:
+                                            godzina="Sobota";
+                                            break;
+                                        case 6:
+                                            godzina="Niedziela";
+                                            break;
+                                    }
+                                    int minuty=7*60+30+(j*105);
+                                    godzina=godzina+" "+minuty+"-"+(minuty+90);
+                                    Statement st1 = createStatement(con);
+                                    executeUpdate(st1, "UPDATE przedmioty SET Godziny_przedmiotu='"+godzina+"' WHERE Nazwa='"+Nazwa+"'");
+                                }
+                                if (znalezionoCzas)
+                                    break;
+                            }
+                            if (znalezionoCzas)
+                                break;
+                        }
+                        if (znalezionoCzas)
+                            break;
+                    }
+                }
+                else
+                {
+                    // tyle okresów ile jest przecinków
+                    for(int j = 0; j < preferowaneGodziny.length(); j++) {
+                        if(preferowaneGodziny.charAt(j) == ',') ileOkresow++;
+                    }
+                    String [] aktualneGodziny = new String[ileOkresow];
+                }
             }
         }
         catch (Exception e)
