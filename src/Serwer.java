@@ -366,10 +366,10 @@ public class Serwer implements Runnable
                 System.out.println("usuwanie przedmiotu");
                 usunPrzedmiot(in,out);
             }
-            if(tekst.equals("plan lekcji student"))
+            if(tekst.equals("plan lekcji"))
             {
-                System.out.println("wysyłanie planu lekcji dla studenta");
-                wyslijPlanLekcjiStudentow(in,out);
+                System.out.println("wysyłanie planu lekcji");
+                wyslijPlanLekcji(in,out);
             }
         }
         catch (IOException ex)
@@ -733,7 +733,7 @@ public class Serwer implements Runnable
             else
                 System.out.println("Baza niewybrana!");
             // przedmioty na które nie jest zapisany
-            ResultSet wynik = executeQuery(st, "SELECT * FROM `przedmioty` WHERE Uczeszczajacy NOT LIKE '%"+getNazwiskoZalogowanego()+",%' or Uczeszczajacy is null;");
+            ResultSet wynik = executeQuery(st, "SELECT * FROM `przedmioty` WHERE Uczeszczajacy NOT LIKE '% "+getNazwiskoZalogowanego()+",%' or Uczeszczajacy is null;");
             int size= 0;
             if (wynik != null)
             {
@@ -1689,29 +1689,42 @@ public class Serwer implements Runnable
         }
     }
 
-    private void wyslijPlanLekcjiStudentow (BufferedReader in, PrintWriter out)
+    private void wyslijPlanLekcji (BufferedReader in, PrintWriter out)
     {
         try
         {
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
+            Statement st1 = createStatement(con);
             if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
                 System.out.println("Baza wybrana");
             else
                 System.out.println("Baza niewybrana!");
-            ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `przedmioty` WHERE 1;");
-            int size= 0;
-            if (wyniklogowania != null)
+            ResultSet wyniklogin, wynik=null;
+            wyniklogin = executeQuery(st, "SELECT * FROM `uzytkownicy` WHERE login='"+ObecnieZalogowany+"';");
+            String nazwisko="";
+            if (wyniklogin.next())
+                nazwisko=wyniklogin.getString("Nazwisko");
+            if (TypZalogowanego.equals("student"))
             {
-                wyniklogowania.beforeFirst();
-                wyniklogowania.last();
-                size = wyniklogowania.getRow();
-                wyniklogowania.beforeFirst();
+                wynik=executeQuery(st1, "SELECT * FROM `przedmioty` WHERE Uczeszczajacy LIKE '% "+getNazwiskoZalogowanego()+",%';");
+            }
+            else if (TypZalogowanego.equals("prowadzacy"))
+            {
+                wynik=executeQuery(st1, "SELECT * FROM `przedmioty` WHERE Nazwisko_prowadzacego='"+nazwisko+"';");
+            }
+            int size= 0;
+            if (wynik != null)
+            {
+                wynik.beforeFirst();
+                wynik.last();
+                size = wynik.getRow();
+                wynik.beforeFirst();
                 out.println(size);
-                while (wyniklogowania.next())
+                while (wynik.next())
                 {
-                    String nazwa= wyniklogowania.getString("Nazwa");
-                    String godziny= wyniklogowania.getString("Godziny_przedmiotu");
+                    String nazwa= wynik.getString("Nazwa");
+                    String godziny= wynik.getString("Godziny_przedmiotu");
                     out.println(nazwa);
                     out.println(godziny);
                 }
@@ -1728,4 +1741,5 @@ public class Serwer implements Runnable
             ex.printStackTrace();
         }
     }
+
 }
