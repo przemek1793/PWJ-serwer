@@ -366,6 +366,11 @@ public class Serwer implements Runnable
                 System.out.println("usuwanie przedmiotu");
                 usunPrzedmiot(in,out);
             }
+            if(tekst.equals("plan lekcji student"))
+            {
+                System.out.println("wysyłanie planu lekcji dla studenta");
+                wyslijPlanLekcjiStudentow(in,out);
+            }
         }
         catch (IOException ex)
         {
@@ -1684,8 +1689,43 @@ public class Serwer implements Runnable
         }
     }
 
-    private void wyslijMailZmianaGodzin ()
+    private void wyslijPlanLekcjiStudentow (BufferedReader in, PrintWriter out)
     {
-
+        try
+        {
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `przedmioty` WHERE 1;");
+            int size= 0;
+            if (wyniklogowania != null)
+            {
+                wyniklogowania.beforeFirst();
+                wyniklogowania.last();
+                size = wyniklogowania.getRow();
+                wyniklogowania.beforeFirst();
+                out.println(size);
+                while (wyniklogowania.next())
+                {
+                    String nazwa= wyniklogowania.getString("Nazwa");
+                    String godziny= wyniklogowania.getString("Godziny_przedmiotu");
+                    out.println(nazwa);
+                    out.println(godziny);
+                }
+            }
+            else
+            {
+                out.println(size);
+            }
+            out.flush();
+            Menu(in,out);
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
     }
 }
