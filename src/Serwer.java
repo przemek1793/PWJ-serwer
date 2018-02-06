@@ -1512,19 +1512,108 @@ public class Serwer implements Runnable
          * trzeci wymiar to sala w której będzie odbywał się przedmiot
          */
         String [][][] godzinyPrzedmiotow = new String[7][8][ileSal];
-        ResultSet wynik = executeQuery(st, "SELECT * FROM `przedmioty`;");
+        ResultSet wynik = executeQuery(st, "SELECT * FROM `przedmioty` ORDER BY Preferowany_czas_prowadzacego DESC;");
         try
         {
             while (wynik.next())
             {
+                boolean znalezionoCzas = false;
                 String preferowaneGodziny= wynik.getString("Preferowany_czas_prowadzacego");
                 String nazwisko= wynik.getString("Nazwisko_prowadzacego");
                 int ileOkresow=0;
-                //brak preferowanych okresów
-                if (preferowaneGodziny==null)
-                {
-                    boolean znalezionoCzas = false;
 
+                //są preferowane okresy
+                if (preferowaneGodziny!=null)
+                {
+                    String [] preferowaneOkresy=preferowaneGodziny.split(", ");
+                    //sprawdzaj po kolei preferowane okresy
+                    for (int i=0; i<preferowaneOkresy.length;i++)
+                    {
+                        String [] aktualny = preferowaneOkresy[i].split(" ");
+                        int dzienTygodnia=0;
+                        switch (aktualny[0])
+                        {
+                            case "Poniedzialek":
+                                dzienTygodnia=0;
+                                break;
+                            case "Wtorek":
+                                dzienTygodnia=1;
+                                break;
+                            case "Sroda":
+                                dzienTygodnia=2;
+                                break;
+                            case "Czwartek":
+                                dzienTygodnia=3;
+                                break;
+                            case "Piatek":
+                                dzienTygodnia=4;
+                                break;
+                            case "Sobota":
+                                dzienTygodnia=5;
+                                break;
+                            case "Niedziela":
+                                dzienTygodnia=6;
+                                break;
+                        }
+                        String [] godziny=aktualny[1].split("-");
+                        int poczatek=Integer.parseInt(godziny[0]);
+                        int koniec=Integer.parseInt(godziny[1]);
+                        //indeksy 1 i ostatniej godziny które pasują do preferowanych godzin
+                        int pierwszaGodzina=0, ostatniaGodzina=0;
+                        for (int j=0; j<8;j++)
+                        {
+                            if (j*105+7*60+30>=poczatek)
+                            {
+                                pierwszaGodzina=j;
+                                break;
+                            }
+                        }
+                        for (int j=7; j>-1;j--)
+                        {
+                            if (j*105+7*60+30<=koniec)
+                            {
+                                ostatniaGodzina=j;
+                                break;
+                            }
+                        }
+                        // sprawdź po kolei pasująće godziny
+                        for (int j=pierwszaGodzina;j<ostatniaGodzina;j++)
+                        {
+                            boolean juzMaZajeciaOTejGodzinie=false;
+                            // sprawdź po kolei sale
+                            for (int k=0;k<godzinyPrzedmiotow[0][0].length;k++)
+                            {
+                                if (godzinyPrzedmiotow[dzienTygodnia][j][k]!=null)
+                                {
+                                    if (godzinyPrzedmiotow[dzienTygodnia][j][k].equals(nazwisko))
+                                        juzMaZajeciaOTejGodzinie=true;
+                                }
+                                //jeśli godzina jest wolna i nie ma zajęć w tej godzinie
+                                if (godzinyPrzedmiotow[dzienTygodnia][j][k]==null && !juzMaZajeciaOTejGodzinie)
+                                {
+                                    godzinyPrzedmiotow[dzienTygodnia][j][k]=nazwisko;
+                                    znalezionoCzas=true;
+
+                                    String Nazwa= wynik.getString("Nazwa");
+                                    String godzina=aktualny[0];
+                                    int minuty=7*60+30+(j*105);
+                                    godzina=godzina+" "+minuty+"-"+(minuty+90);
+                                    Statement st1 = createStatement(con);
+                                    executeUpdate(st1, "UPDATE przedmioty SET Godziny_przedmiotu='"+godzina+"' WHERE Nazwa='"+Nazwa+"'");
+                                }
+                                if (znalezionoCzas)
+                                    break;
+                            }
+                            if (znalezionoCzas)
+                                break;
+                        }
+                        if (znalezionoCzas)
+                            break;
+                    }
+                }
+                //nie znaleziono jeszcze czasu, czyli albo nie ma preferowanych okresów, albo są już zajęte
+                if (!znalezionoCzas)
+                {
                     // sprawdź po kolei dni
                     for (int i=0; i< godzinyPrzedmiotow.length; i++)
                     {
@@ -1586,14 +1675,6 @@ public class Serwer implements Runnable
                         if (znalezionoCzas)
                             break;
                     }
-                }
-                else
-                {
-                    // tyle okresów ile jest przecinków
-                    for(int j = 0; j < preferowaneGodziny.length(); j++) {
-                        if(preferowaneGodziny.charAt(j) == ',') ileOkresow++;
-                    }
-                    String [] aktualneGodziny = new String[ileOkresow];
                 }
             }
         }
