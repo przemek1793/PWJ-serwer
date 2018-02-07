@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc5ffca5-4e66-4f16-b521-322cda87d016" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/pwj-serwer/Serwer.class" afterPath="$PROJECT_DIR$/out/production/pwj-serwer/Serwer.class" />
       <change beforePath="$PROJECT_DIR$/src/Serwer.java" afterPath="$PROJECT_DIR$/src/Serwer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,8 +20,8 @@
       <file leaf-file-name="Serwer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Serwer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="1843" column="176" lean-forward="false" selection-start-line="1843" selection-start-column="176" selection-end-line="1843" selection-end-column="176" />
+            <state relative-caret-position="384">
+              <caret line="1869" column="36" lean-forward="false" selection-start-line="1869" selection-start-column="36" selection-end-line="1869" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#643#644#0" expanded="true" />
@@ -58,7 +56,7 @@
                 <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
                 <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
                 <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-                <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+                <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -328,7 +326,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946146" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946146" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -444,7 +442,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -495,7 +493,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -546,7 +544,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -597,7 +595,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -648,7 +646,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -699,7 +697,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -742,7 +740,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -785,7 +783,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -828,7 +826,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -879,7 +877,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -952,7 +950,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1003,7 +1001,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1046,7 +1044,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1089,7 +1087,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1132,7 +1130,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1175,7 +1173,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1218,7 +1216,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1344,8 +1342,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Serwer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="1843" column="176" lean-forward="false" selection-start-line="1843" selection-start-column="176" selection-end-line="1843" selection-end-column="176" />
+        <state relative-caret-position="384">
+          <caret line="1869" column="36" lean-forward="false" selection-start-line="1869" selection-start-column="36" selection-end-line="1869" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#643#644#0" expanded="true" />
@@ -1380,7 +1378,7 @@
             <element signature="method#wyslijListeUzytkownikow#0;class#Serwer#0" expanded="false" />
             <element signature="method#wyslijSzczegolowaListeZajec#0;class#Serwer#0" expanded="false" />
             <element signature="method#usunPrzedmiot#0;class#Serwer#0" expanded="false" />
-            <element signature="method#wyslijPlanLekcji#0;class#Serwer#0" expanded="false" />
+            <element signature="method#emailZInformacjaOZmianiePlanu#0;class#Serwer#0" expanded="false" />
           </folding>
         </state>
       </provider>

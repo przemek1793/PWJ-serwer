@@ -1809,8 +1809,65 @@ public class Serwer implements Runnable
                 {
                     String nazwa= wynik.getString("Nazwa");
                     String godziny= wynik.getString("Godziny_przedmiotu");
+                    String pole = "";
+                    String [] bufor=godziny.split(" ");
+                    switch (bufor[0])
+                    {
+                        case "Poniedzialek":
+                            pole="Pon";
+                            break;
+                        case "Wtorek":
+                            pole="Wt";
+                            break;
+                        case "Sroda":
+                            pole="Sr";
+                            break;
+                        case "Czwartek":
+                            pole="Czw";
+                            break;
+                        case "Piatek":
+                            pole="Pia";
+                            break;
+                        case "Sobota":
+                            pole="So";
+                            break;
+                        case "Niedziela":
+                            pole="Nie";
+                            break;
+                    }
+
+                    String [] minuty= bufor[1].split("-");
+                    int minutyPoczatkowe=Integer.parseInt(minuty[0]);
+
+                    switch (minutyPoczatkowe)
+                    {
+                        case 450:
+                            pole=pole+"730";
+                            break;
+                        case 555:
+                            pole=pole+"915";
+                            break;
+                        case 660:
+                            pole=pole+"11";
+                            break;
+                        case 765:
+                            pole=pole+"1245";
+                            break;
+                        case 870:
+                            pole=pole+"1430";
+                            break;
+                        case 975:
+                            pole=pole+"1615";
+                            break;
+                        case 1080:
+                            pole=pole+"18";
+                            break;
+                        case 1185:
+                            pole=pole+"1945";
+                            break;
+                    }
                     out.println(nazwa);
-                    out.println(godziny);
+                    out.println(pole);
                 }
             }
             else
