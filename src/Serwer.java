@@ -5,6 +5,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Properties;
 
 public class Serwer implements Runnable
@@ -1264,7 +1265,7 @@ public class Serwer implements Runnable
                 String lista= wynik.getString("Uczeszczajacy");
                 if (lista==null)
                     lista="";
-                nowaWartosc=lista+" "+Wartosc+",";
+                nowaWartosc=lista+Wartosc+",";
             }
             if (executeUpdate(st, "UPDATE `"+Tabela+"` SET "+Kolumna+"='"+nowaWartosc+"' where "+NazwaKlucz+"='"+Klucz+"'") > -1)
             {
@@ -1502,6 +1503,7 @@ public class Serwer implements Runnable
 
     private void ustalGodzinyPrzedmiotow (BufferedReader in, PrintWriter out)
     {
+        System.out.println("ustalanie godzin przedmiotu");
         int ileSal= 1;
         Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
         Statement st = createStatement(con);
@@ -1517,6 +1519,7 @@ public class Serwer implements Runnable
          * trzeci wymiar to sala w której będzie odbywał się przedmiot
          */
         String [][][] godzinyPrzedmiotow = new String[7][8][ileSal];
+        ArrayList<String> listaOsbobDoEmail = new ArrayList<String>();
         ResultSet wynik = executeQuery(st, "SELECT * FROM `przedmioty` ORDER BY Preferowany_czas_prowadzacego DESC;");
         try
         {
@@ -1525,6 +1528,8 @@ public class Serwer implements Runnable
                 boolean znalezionoCzas = false;
                 String preferowaneGodziny= wynik.getString("Preferowany_czas_prowadzacego");
                 String nazwisko= wynik.getString("Nazwisko_prowadzacego");
+                String dotychczasowaGodzina= wynik.getString("Godziny_przedmiotu");
+                String studenci = wynik.getString("Uczeszczajacy");
                 int ileOkresow=0;
 
                 //są preferowane okresy
@@ -1605,6 +1610,44 @@ public class Serwer implements Runnable
                                     godzina=godzina+" "+minuty+"-"+(minuty+90);
                                     Statement st1 = createStatement(con);
                                     executeUpdate(st1, "UPDATE przedmioty SET Godziny_przedmiotu='"+godzina+"' WHERE Nazwa='"+Nazwa+"'");
+                                    //jeśli dotychczasowa godzina przedmiotu była inna to dodaj prowadzącego i studentów do listy osób któa otrzyma maila z informacją o zmianie planu
+                                    if (dotychczasowaGodzina==null || !dotychczasowaGodzina.equals(godzina))
+                                    {
+                                        if (studenci!=null)
+                                        {
+                                            String [] tablicaStudentow=studenci.split(",");
+                                            for (int t=0;t<tablicaStudentow.length;t++)
+                                            {
+                                                boolean znaleziono=false;
+                                                for (int t1=0;t1<listaOsbobDoEmail.size();t1++)
+                                                {
+                                                    //ustaw flage na true jeśli znaleziono studenta w liście osób
+                                                    if (tablicaStudentow[t].equals(listaOsbobDoEmail.get(t1)))
+                                                    {
+                                                        znaleziono=true;
+                                                    }
+                                                    if (znaleziono)
+                                                        break;
+                                                }
+                                                if (!znaleziono)
+                                                    listaOsbobDoEmail.add(tablicaStudentow[t]);
+                                            }
+                                            // szukanie prowadzącego na liście do email
+                                            boolean znaleziono=false;
+                                            for (int t1=0;t1<listaOsbobDoEmail.size();t1++)
+                                            {
+                                                //ustaw flage na true jeśli znaleziono prowadzącego w liście osób
+                                                if (nazwisko.equals(listaOsbobDoEmail.get(t1)))
+                                                {
+                                                    znaleziono=true;
+                                                }
+                                                if (znaleziono)
+                                                    break;
+                                            }
+                                            if (!znaleziono)
+                                                listaOsbobDoEmail.add(nazwisko);
+                                        }
+                                    }
                                 }
                                 if (znalezionoCzas)
                                     break;
@@ -1670,6 +1713,44 @@ public class Serwer implements Runnable
                                     godzina=godzina+" "+minuty+"-"+(minuty+90);
                                     Statement st1 = createStatement(con);
                                     executeUpdate(st1, "UPDATE przedmioty SET Godziny_przedmiotu='"+godzina+"' WHERE Nazwa='"+Nazwa+"'");
+                                    //jeśli dotychczasowa godzina przedmiotu była inna to dodaj prowadzącego i studentów do listy osób któa otrzyma maila z informacją o zmianie planu
+                                    if (dotychczasowaGodzina==null || !dotychczasowaGodzina.equals(godzina))
+                                    {
+                                        if (studenci!=null)
+                                        {
+                                            String [] tablicaStudentow=studenci.split(",");
+                                            for (int t=0;t<tablicaStudentow.length;t++)
+                                            {
+                                                boolean znaleziono=false;
+                                                for (int t1=0;t1<listaOsbobDoEmail.size();t1++)
+                                                {
+                                                    //ustaw flage na true jeśli znaleziono studenta w liście osób
+                                                    if (tablicaStudentow[t].equals(listaOsbobDoEmail.get(t1)))
+                                                    {
+                                                        znaleziono=true;
+                                                    }
+                                                    if (znaleziono)
+                                                        break;
+                                                }
+                                                if (!znaleziono)
+                                                    listaOsbobDoEmail.add(tablicaStudentow[t]);
+                                            }
+                                            // szukanie prowadzącego na liście do email
+                                            boolean znaleziono=false;
+                                            for (int t1=0;t1<listaOsbobDoEmail.size();t1++)
+                                            {
+                                                //ustaw flage na true jeśli znaleziono prowadzącego w liście osób
+                                                if (nazwisko.equals(listaOsbobDoEmail.get(t1)))
+                                                {
+                                                    znaleziono=true;
+                                                }
+                                                if (znaleziono)
+                                                    break;
+                                            }
+                                            if (!znaleziono)
+                                                listaOsbobDoEmail.add(nazwisko);
+                                        }
+                                    }
                                 }
                                 if (znalezionoCzas)
                                     break;
@@ -1686,6 +1767,9 @@ public class Serwer implements Runnable
         catch (Exception e)
         {
             e.printStackTrace();
+        }
+        finally {
+            emailZInformacjaOZmianiePlanu(in,out,listaOsbobDoEmail);
         }
     }
 
@@ -1707,7 +1791,7 @@ public class Serwer implements Runnable
                 nazwisko=wyniklogin.getString("Nazwisko");
             if (TypZalogowanego.equals("student"))
             {
-                wynik=executeQuery(st1, "SELECT * FROM `przedmioty` WHERE Uczeszczajacy LIKE '% "+getNazwiskoZalogowanego()+",%';");
+                wynik=executeQuery(st1, "SELECT * FROM `przedmioty` WHERE Uczeszczajacy LIKE '%"+getNazwiskoZalogowanego()+",%';");
             }
             else if (TypZalogowanego.equals("prowadzacy"))
             {
@@ -1739,6 +1823,31 @@ public class Serwer implements Runnable
         catch (Exception ex)
         {
             ex.printStackTrace();
+        }
+    }
+
+    private void emailZInformacjaOZmianiePlanu (BufferedReader in, PrintWriter out, ArrayList <String> listaOsob)
+    {
+        for (int i=0;i<listaOsob.size();i++)
+        {
+            Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+            Statement st = createStatement(con);
+            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+                System.out.println("Baza wybrana");
+            else
+                System.out.println("Baza niewybrana!");
+            ResultSet wynik = executeQuery(st, "SELECT * FROM `uzytkownicy` Where Nazwisko='"+listaOsob.get(i)+"';");
+            try
+            {
+                while (wynik.next()) {
+                    String email = wynik.getString("Email");
+                    GoogleMail.send(GoogleMail.getGmailService(),email,"","pwj.planlekcji@gmail.com","Pwj - plan lekcji. Zmiana planu lekcji","Twój plan lekcji został zmieniony" );
+                }
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
         }
     }
 
