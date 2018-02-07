@@ -2,6 +2,7 @@ import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 import java.io.*;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.*;
@@ -137,14 +138,29 @@ public class Serwer implements Runnable
                     System.out.println("Tabela Przedmioty nie utworzona!");
             }
             tables = dbm.getTables(null, null, "Serwery", null);
+            Statement st1 = createStatement(connection);
+            String ip=InetAddress.getLocalHost().toString();
+            String []ipRozlozone=ip.split("/");
+            ip=ipRozlozone[1];
             if (tables.next()) {
                 System.out.println("Tabela Serwery istnieje");
+                //sprawdz czy adres ip tego serwera jest już w tabeli a jeśli nie to go dodaj
+                ResultSet wynik = executeQuery(st1, "SELECT * FROM serwery WHERE IP='"+ ip+"';");
+                if (!wynik.next())
+                {
+                    executeUpdate(st1, "INSERT INTO serwery (IP ) VALUES ('"+ ip+"'); ");
+                }
             }
             else {
                 if (executeUpdate(st, "CREATE TABLE Serwery (IP VARCHAR(50) unique NOT NULL);") > -1)
+                {
                     System.out.println("Tabela Serwery utworzona");
+                    executeUpdate(st1, "INSERT INTO serwery (IP ) VALUES ('"+ ip+"'); ");
+                }
                 else
+                {
                     System.out.println("Tabela Serwery nie utworzona!");
+                }
             }
             tables = dbm.getTables(null, null, "Zmiany", null);
             if (tables.next()) {
@@ -157,9 +173,9 @@ public class Serwer implements Runnable
                     System.out.println("Tabela Zmiany nie utworzona!");
             }
         }
-        catch (SQLException e)
+        catch (Exception e1)
         {
-            e.printStackTrace();
+            e1.printStackTrace();
         }
         return connection;
     }
