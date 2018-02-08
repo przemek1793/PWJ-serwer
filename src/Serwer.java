@@ -384,11 +384,6 @@ public class Serwer implements Runnable
         else
             System.exit(1);
         Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
-        Statement st = createStatement(con);
-        if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-            System.out.println("Baza wybrana");
-        else
-            System.out.println("Baza niewybrana!");
         ServerSocket ssock = new ServerSocket(4355);
         while (true)
         {
@@ -406,10 +401,6 @@ public class Serwer implements Runnable
             hasło = in.readLine();
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM uzytkownicy WHERE haslo='"+hasło+"' and login='"+login+"';");
             if (wyniklogowania.next())
             {
@@ -456,10 +447,6 @@ public class Serwer implements Runnable
             typ = in.readLine();
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             if (executeUpdate(st, "INSERT INTO uzytkownicy (login, haslo, Imie, Nazwisko, Email, typ, CzyZatwierdzony) values ('"+login+"', '"+hasło+"', '"+Imie+"', '"+Nazwisko+"', '"+Email+"', '"+typ+"', 0);") > -1)
             {
                 System.out.println("Zarejestrowano uzytkownika");
@@ -493,10 +480,6 @@ public class Serwer implements Runnable
             email = in.readLine();
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM uzytkownicy WHERE Email='"+email+"';");
             if (wyniklogowania.next())
             {
@@ -533,10 +516,6 @@ public class Serwer implements Runnable
         {
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM uzytkownicy WHERE login='"+ObecnieZalogowany+"';");
             if (wyniklogowania.next())
             {
@@ -577,10 +556,6 @@ public class Serwer implements Runnable
             email=in.readLine();
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             if (executeUpdate(st, "UPDATE uzytkownicy SET login='"+login+"', haslo='"+hasło+"', Imie='"+imie+"', Nazwisko='"+nazwisko+"', Email='"+email+"' WHERE login='"+ObecnieZalogowany+"';") > -1)
             {
                 System.out.println("Zmieniono dane");
@@ -612,10 +587,6 @@ public class Serwer implements Runnable
         {
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `uzytkownicy` WHERE typ='prowadzacy';");
             int size= 0;
             if (wyniklogowania != null)
@@ -658,10 +629,6 @@ public class Serwer implements Runnable
                 Nazwisko = in.readLine();
                 Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
                 Statement st = createStatement(con);
-                if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                    System.out.println("Baza wybrana");
-                else
-                    System.out.println("Baza niewybrana!");
                 if (executeUpdate(st, "Insert into `przedmioty` (Nazwa, Nazwisko_prowadzacego) values ('"+nazwa+"', '"+Nazwisko+"')") > -1)
                 {
                     System.out.println("Dodano przedmiot");
@@ -694,10 +661,6 @@ public class Serwer implements Runnable
         {
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `przedmioty` WHERE 1;");
             int size= 0;
             if (wyniklogowania != null)
@@ -733,10 +696,6 @@ public class Serwer implements Runnable
         {
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             // przedmioty na które nie jest zapisany
             ResultSet wynik = executeQuery(st, "SELECT * FROM `przedmioty` WHERE Uczeszczajacy NOT LIKE '% "+getNazwiskoZalogowanego()+",%' or Uczeszczajacy is null;");
             int size= 0;
@@ -773,10 +732,6 @@ public class Serwer implements Runnable
         {
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `przedmioty` where Nazwisko_prowadzacego!='"+getNazwiskoZalogowanego()+"' ;");
             int size= 0;
             if (wyniklogowania != null)
@@ -812,10 +767,6 @@ public class Serwer implements Runnable
         {
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `przedmioty` where Nazwisko_prowadzacego='"+getNazwiskoZalogowanego()+"' ;");
             int size= 0;
             if (wyniklogowania != null)
@@ -862,10 +813,6 @@ public class Serwer implements Runnable
                 nazwa = in.readLine();
                 Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
                 Statement st = createStatement(con);
-                if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                    System.out.println("Baza wybrana");
-                else
-                    System.out.println("Baza niewybrana!");
                 ResultSet wynik = executeQuery(st, "SELECT * FROM `przedmioty` WHERE Nazwa='"+nazwa+"'");
                 try
                 {
@@ -940,10 +887,6 @@ public class Serwer implements Runnable
         String nazwisko="";
         Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
         Statement st = createStatement(con);
-        if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-            System.out.println("Baza wybrana");
-        else
-            System.out.println("Baza niewybrana!");
         ResultSet wynik = executeQuery(st, "SELECT * FROM `uzytkownicy` WHERE login='"+ObecnieZalogowany+"'");
         try
         {
@@ -980,10 +923,6 @@ public class Serwer implements Runnable
                 nazwa = in.readLine();
                 Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
                 Statement st = createStatement(con);
-                if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                    System.out.println("Baza wybrana");
-                else
-                    System.out.println("Baza niewybrana!");
                 ResultSet wynik = executeQuery(st, "SELECT * FROM `przedmioty` WHERE Nazwa='"+nazwa+"'");
                 try
                 {
@@ -1057,10 +996,6 @@ public class Serwer implements Runnable
             String godziny=in.readLine();
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             if (executeUpdate(st, "Insert into `zmiany` (Tabela, Klucz, KolumnaDoZmiany, NowaWartosc) values ( 'przedmioty', '"+nazwa+"', 'Preferowany_czas_prowadzacego', '"+godziny+"')") > -1)
             {
                 System.out.println("Dodano do kolumny zmian");
@@ -1087,10 +1022,6 @@ public class Serwer implements Runnable
         {
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `uzytkownicy` where CzyZatwierdzony="+0);
             int size= 0;
             if (wyniklogowania != null)
@@ -1134,10 +1065,6 @@ public class Serwer implements Runnable
             String login = in.readLine();
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             if (executeUpdate(st, "UPDATE `uzytkownicy` SET CzyZatwierdzony=1 where login='"+login+"'") > -1)
             {
                 System.out.println("Zatwierdzono użytkownika");
@@ -1164,10 +1091,6 @@ public class Serwer implements Runnable
             String login = in.readLine();
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM uzytkownicy WHERE login='"+login+"';");
             if (wyniklogowania.next())
             {
@@ -1201,10 +1124,6 @@ public class Serwer implements Runnable
         {
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             ResultSet wynik = executeQuery(st, "SELECT * FROM `zmiany` WHERE 1;");
             int size= 0;
             if (wynik != null)
@@ -1256,10 +1175,6 @@ public class Serwer implements Runnable
             }
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
 
             // dodawanie użytkowników zmienia, a nie zastępuje dotychczasową wartość w bazie danych
             if (Tabela.equals("przedmioty") && Kolumna.equals("Uczeszczajacy"))
@@ -1320,10 +1235,6 @@ public class Serwer implements Runnable
             Wartosc=in.readLine();
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             if (executeUpdate(st, "DELETE FROM `zmiany` WHERE NowaWartosc ='"+Wartosc+"' and Tabela ='"+Tabela+"' and KolumnaDoZmiany ='"+Kolumna+"' and Klucz ='"+Klucz+"' ") > -1)
             {
                 System.out.println("Usunieto zmiane");
@@ -1351,10 +1262,6 @@ public class Serwer implements Runnable
             login=in.readLine();
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             if (executeUpdate(st, "DELETE FROM `uzytkownicy` WHERE login ='"+login+"'") > -1)
             {
                 System.out.println("Usunieto uzytkownika");
@@ -1380,10 +1287,6 @@ public class Serwer implements Runnable
         {
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `uzytkownicy` where login!='"+ObecnieZalogowany+"'");
             int size= 0;
             if (wyniklogowania != null)
@@ -1428,10 +1331,6 @@ public class Serwer implements Runnable
         {
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             ResultSet wyniklogowania = executeQuery(st, "SELECT * FROM `przedmioty` WHERE 1;");
             int size= 0;
             if (wyniklogowania != null)
@@ -1481,10 +1380,6 @@ public class Serwer implements Runnable
             nazwa=in.readLine();
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             if (executeUpdate(st, "DELETE FROM `przedmioty` WHERE Nazwa ='"+nazwa+"'") > -1)
             {
                 System.out.println("Usunieto przedmiot");
@@ -1511,10 +1406,6 @@ public class Serwer implements Runnable
         int ileSal= 1;
         Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
         Statement st = createStatement(con);
-        if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-            System.out.println("Baza wybrana");
-        else
-            System.out.println("Baza niewybrana!");
         /**
          * Tabela w która oznacza zajęte godziny [dzień tygodnia][godzina][sala].
          * Jeśli pole jest nullem to jest wolne, przy zajęciu wpisywane jest nazwisko prowadzącego
@@ -1784,10 +1675,6 @@ public class Serwer implements Runnable
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
             Statement st1 = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             ResultSet wyniklogin, wynik=null;
             wyniklogin = executeQuery(st, "SELECT * FROM `uzytkownicy` WHERE login='"+ObecnieZalogowany+"';");
             String nazwisko="";
@@ -1893,10 +1780,6 @@ public class Serwer implements Runnable
         {
             Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
             Statement st = createStatement(con);
-            if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
-                System.out.println("Baza wybrana");
-            else
-                System.out.println("Baza niewybrana!");
             ResultSet wynik = executeQuery(st, "SELECT * FROM `uzytkownicy` Where Nazwisko='"+listaOsob.get(i)+"';");
             try
             {
