@@ -36,11 +36,6 @@ public class Serwer implements Runnable
         }
     }
 
-    /**
-     * Metoda s�u�y do po��czenia z MySQL bez wybierania konkretnej bazy
-     *
-     * @return referencja do uchwytu bazy danych
-     */
     private static Connection getConnection(String adres, int port) {
 
         Connection conn = null;
@@ -57,19 +52,6 @@ public class Serwer implements Runnable
         return conn;
     }
 
-    /**
-     * Metoda s�u�y do nawi�zania po��czenia z baz� danych
-     *
-     * @param adress
-     *            - adres bazy danych
-     * @param dataBaseName
-     *            - nazwa bazy
-     * @param userName
-     *            - login do bazy
-     * @param password
-     *            - has�o do bazy
-     * @return - po��czenie z baz�
-     */
     private static Connection connectToDatabase(String adress,
                                                 String dataBaseName, String userName, String password)
     {
@@ -181,11 +163,11 @@ public class Serwer implements Runnable
     }
 
     /**
-     * tworzenie obiektu Statement przesy�aj�cego zapytania do bazy connection
+     * tworzenie obiektu Statement przesyłającego zapytania do bazy connection
      *
      * @param connection
-     *            - po��czenie z baz�
-     * @return obiekt Statement przesy�aj�cy zapytania do bazy
+     *            - połączenie z bazą
+     * @return obiekt Statement przesyłający zapytania do bazy
      */
     private static Statement createStatement(Connection connection) {
         try {
@@ -198,7 +180,7 @@ public class Serwer implements Runnable
     }
 
     /**
-     * Wykonanie kwerendy i przes�anie wynik�w do obiektu ResultSet
+     * Wykonanie kwerendy i przesłanie wyników do obiektu ResultSet
      *
      * @param s
      *            - Statement
@@ -401,7 +383,13 @@ public class Serwer implements Runnable
             System.out.println(" sterownik OK");
         else
             System.exit(1);
-        ServerSocket ssock = new ServerSocket(4255);
+        Connection con = connectToDatabase(AdresBazyDanych,NazwaBazyDanych,NazwaUzytkownika,HasłoDoBazy);
+        Statement st = createStatement(con);
+        if (executeUpdate(st, "USE "+NazwaBazyDanych+";") > -1)
+            System.out.println("Baza wybrana");
+        else
+            System.out.println("Baza niewybrana!");
+        ServerSocket ssock = new ServerSocket(4355);
         while (true)
         {
             Socket sock = ssock.accept();
