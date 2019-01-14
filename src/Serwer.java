@@ -12,7 +12,7 @@ import java.util.Properties;
 public class Serwer implements Runnable
 {
     Socket csocket;
-    static String AdresBazyDanych="192.168.0.13";
+    static String AdresBazyDanych="192.168.0.15";
     static String NazwaBazyDanych="PWJ_Projekt";
     static String NazwaUzytkownika="PWJ";
     static String HasłoDoBazy="asdf";
@@ -56,11 +56,6 @@ public class Serwer implements Runnable
                                                 String dataBaseName, String userName, String password)
     {
         String baza = "jdbc:mysql://" + adress + "/" + dataBaseName;
-        // objasnienie opisu bazy:
-        // jdbc: - mechanizm laczenia z baza (moze byc inny, np. odbc)
-        // mysql: - rodzaj bazy
-        // adress - adres serwera z baza (moze byc tez w nazwy)
-        // dataBaseName - nazwa bazy
         java.sql.Connection connection = null;
         try {
             connection = DriverManager.getConnection(baza, userName, password);
@@ -234,16 +229,10 @@ public class Serwer implements Runnable
              * na podstawie pierwszej wyslanej lini serwer decyduje co ma zrobic
              */
             String tekst=in.readLine();
-            /**
-             * rejestracja
-             */
             if(tekst.equals("rejestracja"))
             {
                 rejestracja(in,out);
             }
-            /**
-             * logowanie
-             */
             if(tekst.equals("logowanie"))
             {
                 logowanie(in,out);
@@ -929,13 +918,13 @@ public class Serwer implements Runnable
                     if (wynik.next())
                     {
                         String nazwisko_prowadzacego= wynik.getString("Nazwisko_prowadzacego");
-                        //jest już zapisany na przemiot
+                        //już prowadzi przedmiot
                         if (nazwisko_prowadzacego.equals(nazwisko))
                         {
                             System.out.println("Już prowadzi przedmiot!");
                             out.println("duplikat2");
                         }
-                        // nie jest zapisany na przedmiot
+                        // nie prowadzi przedmiotu
                         else
                         {
                             try
@@ -1664,7 +1653,7 @@ public class Serwer implements Runnable
             e.printStackTrace();
         }
         finally {
-            emailZInformacjaOZmianiePlanu(in,out,listaOsbobDoEmail);
+            emailZInformacjaOZmianiePlanu(listaOsbobDoEmail);
         }
     }
 
@@ -1774,7 +1763,7 @@ public class Serwer implements Runnable
         }
     }
 
-    private void emailZInformacjaOZmianiePlanu (BufferedReader in, PrintWriter out, ArrayList <String> listaOsob)
+    private void emailZInformacjaOZmianiePlanu (ArrayList <String> listaOsob)
     {
         for (int i=0;i<listaOsob.size();i++)
         {

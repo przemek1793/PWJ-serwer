@@ -22,10 +22,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
-/**
- *
- * @author doraemon
- */
+
 public class GoogleMail {
 
     private GoogleMail() { }
